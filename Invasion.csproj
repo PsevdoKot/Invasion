@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B3D9AC9-C291-483C-B88C-DC4D2E9BF6F7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Invasion</RootNamespace>
+    <AssemblyName>Invasion</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Projectiles\Bullet.cs" />
+    <Compile Include="Domain\GameObjects\Cannon.cs" />
+    <Compile Include="Domain\Projectiles\CannonBall.cs" />
+    <Compile Include="Domain\GameObjects\ControlCenter.cs" />
+    <Compile Include="Domain\Enums\Direction.cs" />
+    <Compile Include="Domain\Game.cs" />
+    <Compile Include="Domain\Enums\GameObject.cs" />
+    <Compile Include="Domain\Enums\GameStage.cs" />
+    <Compile Include="Domain\GameObjects\Drone.cs" />
+    <Compile Include="Domain\Projectiles\Laser.cs" />
+    <Compile Include="Domain\GameObjects\MachineGun.cs" />
+    <Compile Include="Domain\Projectiles\Missle.cs" />
+    <Compile Include="Domain\Projectiles\SpringyBall.cs" />
+    <Compile Include="Domain\GameObjects\IGameObject.cs" />
+    <Compile Include="Domain\Projectiles\IProjectile.cs" />
+    <Compile Include="Domain\GameObjects\SupplyCenter.cs" />
+    <Compile Include="Domain\Level.cs" />
+    <Compile Include="Domain\PointExtensions.cs" />
+    <Compile Include="Domain\Enums\Projectile.cs" />
+    <Compile Include="Domain\Vector.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BattleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\BattleControl.Designer.cs">
+      <DependentUpon>BattleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinishedControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FinishedControl.Designer.cs">
+      <DependentUpon>FinishedControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LevelSelectingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\LevelSelectingControl.Designer.cs">
+      <DependentUpon>LevelSelectingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\MenuControl.Designer.cs">
+      <DependentUpon>MenuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BattleControl.resx">
+      <DependentUpon>BattleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FinishedControl.resx">
+      <DependentUpon>FinishedControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LevelSelectingControl.resx">
+      <DependentUpon>LevelSelectingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MenuControl.resx">
+      <DependentUpon>MenuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\AI\" />
+    <Folder Include="Tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\bg5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\bullet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\cannonBall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\controlCenter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\drone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\laser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\machineGun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\missle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\springyBall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\turret1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\turret2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\supplyCenter.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

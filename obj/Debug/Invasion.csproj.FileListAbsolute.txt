@@ -1,0 +1,14 @@
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\bin\Debug\Invasion.exe.config
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\bin\Debug\Invasion.exe
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\bin\Debug\Invasion.pdb
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.csproj.AssemblyReference.cache
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.Properties.Resources.resources
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.Views.BattleControl.resources
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.Views.FinishedControl.resources
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.Views.LevelSelectingControl.resources
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.Views.MenuControl.resources
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.csproj.GenerateResource.cache
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.csproj.CoreCompileInputs.cache
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.exe
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.pdb
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.MainForm.resources
