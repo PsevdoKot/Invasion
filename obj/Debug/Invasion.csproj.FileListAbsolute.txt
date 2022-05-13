@@ -12,3 +12,4 @@ C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.
 C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.exe
 C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.pdb
 C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.MainForm.resources
+C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.Views.DefeatControl.resources

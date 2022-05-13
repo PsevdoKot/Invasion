@@ -1,0 +1,18 @@
+﻿cannon position
+150 680
+|
+ammunition
+5 4 3 2
+|
+control center position
+1200 100
+|
+supply centers positions
+150 200
+700 350
+|
+walls
+
+|
+droneAppearanceTime
+10

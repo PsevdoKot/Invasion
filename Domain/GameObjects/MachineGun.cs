@@ -13,7 +13,7 @@ namespace Invasion.Domain
 {
     public class MachineGun
     {
-        public Image Image { get => new Bitmap(Resources.machineGun); }
+        public Image Image { get => Resources.machineGun; }
 
         public Vector Position { get; set; }
 

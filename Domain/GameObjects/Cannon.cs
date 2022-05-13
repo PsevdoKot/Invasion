@@ -13,8 +13,8 @@ namespace Invasion.Domain
 {
     public class Cannon : IGameObject
     {
-        public Image Image { get => new Bitmap(Resources.turret1); }
-        public Image Image2 { get => new Bitmap(Resources.turret2); }
+        public Image Image { get => Resources.turret1; }
+        public Image Image2 { get => Resources.turret2; }
 
         public Vector Position { get; set; }
         public Size Size { get; set; }
@@ -37,7 +37,7 @@ namespace Invasion.Domain
         private const int mgOffsetY = 0;
         public MachineGun MachineGun;
 
-        public Cannon(Vector position, (int, int, int, int) projsCount)
+        public Cannon(Vector position, int[] ammunition)
         {
             Position = position;
             Size = new Size(120, 65);
@@ -45,10 +45,10 @@ namespace Invasion.Domain
             ShotPower = 50;
             SelectedProj = 0;
             projInfo = new Dictionary<Projectile, int>();
-            projInfo[Projectile.CannonBall] = projsCount.Item1;
-            projInfo[Projectile.SpringyBall] = projsCount.Item2;
-            projInfo[Projectile.Laser] = projsCount.Item3;
-            projInfo[Projectile.Missle] = projsCount.Item4;
+            projInfo[Projectile.CannonBall] = ammunition[0];
+            projInfo[Projectile.SpringyBall] = ammunition[1];
+            projInfo[Projectile.Laser] = ammunition[2];
+            projInfo[Projectile.Missle] = ammunition[3];
             MachineGun = new MachineGun(Position);
         }
 
@@ -62,8 +62,8 @@ namespace Invasion.Domain
 
         public void ChangeShotPower(Direction dir)
         {
-            if (dir == Enums.Direction.Down && ShotPower > 0 ||
-                dir == Enums.Direction.Up && Direction < 100)
+            if (dir == Enums.Direction.Down && ShotPower > 10 ||
+                dir == Enums.Direction.Up && ShotPower < 100)
                 ShotPower += dPower * (int)dir;
         }
 

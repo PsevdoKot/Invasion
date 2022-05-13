@@ -39,7 +39,8 @@ namespace Invasion.Views
             typeof(Panel).InvokeMember("DoubleBuffered",
                 BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
                 null, table, new object[] { true });
-            BackColor = Color.LightSkyBlue;
+
+            table.BackgroundImage = Resources.battleBackground;
 
             GetBattleGroundBounds();
 
@@ -232,7 +233,7 @@ namespace Invasion.Views
 
         private void LevelInfo_OnPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
-            var shotPowerBar = new Rectangle(25, (int)(ClientSize.Height * 0.8) + 15, 250, 30);
+            var shotPowerBar = new Rectangle(25, (int)(ClientSize.Height * 0.8) + 30, 250, 20);
             e.Graphics.DrawRectangle(Pens.Black, shotPowerBar.X - 1, shotPowerBar.Y - 1, shotPowerBar.Width + 1, shotPowerBar.Height + 1);
             e.Graphics.FillRectangle(Brushes.DarkRed, shotPowerBar);
             e.Graphics.FillRectangle(Brushes.Red, shotPowerBar.X, shotPowerBar.Y, 2.5f * level.Cannon.ShotPower, shotPowerBar.Height);
@@ -240,6 +241,7 @@ namespace Invasion.Views
 
         private void Table_OnPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
+            //var image = new Bitmap(Resources._11, bgWidth, bgHeight);
             var image = new Bitmap(bgWidth, bgHeight);
             var graph = Graphics.FromImage(image);
             DrawTo(graph);
@@ -249,7 +251,7 @@ namespace Invasion.Views
         private void DrawTo(Graphics g)
         {
             g.SmoothingMode = SmoothingMode.AntiAlias;
-            g.FillRectangle(/*Brushes.Gainsboro*/Brushes.Gray, 0, 0, bgWidth, bgHeight);
+            //g.FillRectangle(/*Brushes.Gainsboro*/Brushes.Gray, 0, 0, bgWidth, bgHeight);
 
             var matrix = g.Transform;
 
@@ -258,7 +260,7 @@ namespace Invasion.Views
             g.DrawImage(level.Cannon.Image2, -15, 0, 30, 70);
             g.RotateTransform((level.Cannon.IsFliped ? 0 : 180) + (float)level.Cannon.Direction);
             g.DrawImage(level.Cannon.Image, level.Cannon.IsFliped ? 100 : -100, -15, level.Cannon.IsFliped ? -150 : 150, 30);
-            
+
             // machine gun
             g.Transform = matrix;
             g.TranslateTransform((float)level.Cannon.Position.X, (float)level.Cannon.Position.Y + 5);
@@ -279,7 +281,6 @@ namespace Invasion.Views
             // drones
             foreach (var drone in level.Drones)
             {
-                g.DrawRectangle(Pens.Red, drone.Collision);
                 g.TranslateTransform((float)drone.Position.X, (float)drone.Position.Y);
                 g.RotateTransform((float)drone.Direction);
                 g.DrawImage(drone.Image, -drone.Size.Width / 2, -drone.Size.Height / 2, drone.Size.Width, drone.Size.Height);
@@ -291,7 +292,7 @@ namespace Invasion.Views
             {
                 g.TranslateTransform((float)projectile.Position.X, (float)projectile.Position.Y);
                 g.RotateTransform((float)projectile.Direction);
-                g.DrawImage(projectile.Image, 0, 0, projectile.Size.Width, projectile.Size.Height);
+                g.DrawImage(projectile.Image, -projectile.Size.Width / 2, -projectile.Size.Height / 2, projectile.Size.Width, projectile.Size.Height);
                 g.Transform = matrix;
             }
 

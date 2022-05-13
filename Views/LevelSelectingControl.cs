@@ -27,6 +27,7 @@ namespace Invasion.Views
 
             this.game = game;
 
+            tutorialButton.Click += TutorialButton_Click;
             level1Button.Click += LevelButton_Click;
             level2Button.Click += LevelButton_Click;
             level3Button.Click += LevelButton_Click;
@@ -37,12 +38,17 @@ namespace Invasion.Views
             menuButton.Click += MenuButton_Click;
         }
 
-        private void MenuButton_Click(object sender, EventArgs e)
+        private void TutorialButton_Click(object sender, EventArgs e)
         {
-            game.ToMenu();
+            game.LoadLevel(0);
         }
 
         private void LevelButton_Click(object sender, EventArgs e) 
             => game.LoadLevel(((Button)sender).Text.ElementAt(6) - 48);
+
+        private void MenuButton_Click(object sender, EventArgs e)
+        {
+            game.ToMenu();
+        }
     }
 }

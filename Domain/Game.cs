@@ -3,6 +3,7 @@ using Invasion.Domain.Enums;
 using Invasion.Domain.GameObjects;
 using Invasion.Domain.Projectiles;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -20,38 +21,10 @@ namespace Invasion.Domain
 
         public Rectangle BattleGround { get; set; }
 
-        public Level[] Levels = new[] 
-            { 
-                new Level(
-                    new Cannon(new Vector(200, 680), (5, 4, 3, 2)),
-                    new Vector(1200, 100),
-                    new List<Vector> 
-                    {
-                        new Vector(150, 200),
-                        new Vector(700, 350)
-                    },
-                    new List<IGameObject>
-                    { 
-                        
-                    }
-                ),
-                new Level(
-                    new Cannon(new Vector(200, 680), (5, 4, 3, 0)),
-                    new Vector(1200, 100),
-                    new List<Vector>
-                    {
-                        new Vector(150, 200),
-                        new Vector(700, 350)
-                    },
-                    new List<IGameObject>
-                    {
-
-                    }
-                )
-            };
         public Level CurrentLevel { get; private set; }
         public int CurrentLevelNumber { get; private set; }        
         public int PlayerScore { get; private set; }
+        private int playerScoreAtLevelBeginning;
 
         public int LevelTime { get; private set; }
         private int minutes;
@@ -77,15 +50,22 @@ namespace Invasion.Domain
 
         public void ToMenu()
         {
-            LevelTime = 0;
+            PlayerScore = playerScoreAtLevelBeginning;
             ChangeStage(GameStage.Menu);
+        }
+
+        public void ToDefeat()
+        {
+            PlayerScore = playerScoreAtLevelBeginning;
+            ChangeStage(GameStage.Defeat);
         }
 
         public void LoadLevel(int levelNumber)
         {
+            playerScoreAtLevelBeginning = PlayerScore;
             LevelTime = 0;
             CurrentLevelNumber = levelNumber;
-            CurrentLevel = Levels[CurrentLevelNumber - 1];
+            CurrentLevel = LevelMaker.Levels[CurrentLevelNumber] ?? LevelMaker.LoadLevelFromFolder(Folders.Levels, CurrentLevelNumber);
             ChangeStage(GameStage.Battle);
         }
 
@@ -101,7 +81,7 @@ namespace Invasion.Domain
         public void UpdateTime()
         {
             LevelTime += 1;
-            if (LevelTime % 10 == 0)
+            if (LevelTime % CurrentLevel.DroneAppearanceTime == 0)
                 SpawnDrone();
         }
 
@@ -168,7 +148,7 @@ namespace Invasion.Domain
             {
                 if (drone.Collision.IntersectsWith(CurrentLevel.Cannon.Collision))
                 {
-                    RestartLevel();
+                    ToDefeat();
                 }
             }
 

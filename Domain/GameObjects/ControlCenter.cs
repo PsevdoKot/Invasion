@@ -13,7 +13,7 @@ namespace Invasion.Domain
 {
     public class ControlCenter : IGameObject
     {
-        public Image Image { get => new Bitmap(Resources.controlCenter); }
+        public Image Image { get => Resources.controlCenter; }
 
         public Vector Position { get; set; }
         public Size Size { get; set; }

@@ -10,7 +10,7 @@ namespace Invasion.Domain.GameObjects
 {
     public class SupplyCenter : IGameObject
     {
-        public Image Image { get => new Bitmap(Resources.supplyCenter); }
+        public Image Image { get => Resources.supplyCenter; }
 
         public Vector Position { get; set; }
         public Size Size { get; set; }

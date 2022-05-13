@@ -1,0 +1,17 @@
+﻿cannon position
+600 680
+|
+ammunition
+99 99 99 99
+|
+control center position
+1100 200
+|
+supply centers positions
+200 200
+|
+walls
+
+|
+droneAppearanceTime
+666

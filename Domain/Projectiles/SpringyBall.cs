@@ -11,7 +11,7 @@ namespace Invasion.Domain.Projectiles
 {
     public class SpringyBall : IProjectile
     {
-        public Image Image { get => new Bitmap(Resources.springyBall); }
+        public Image Image { get => Resources.springyBall; }
         public Projectile Type { get => Projectile.SpringyBall; }
 
         public Vector Position { get; set; }

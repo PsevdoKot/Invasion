@@ -11,11 +11,11 @@ using Invasion.Domain;
 
 namespace Invasion.Views
 {
-    public partial class FinishedControl : UserControl
+    public partial class DefeatControl : UserControl
     {
         private Game game;
 
-        public FinishedControl()
+        public DefeatControl()
         {
             InitializeComponent();
         }
@@ -27,17 +27,12 @@ namespace Invasion.Views
 
             this.game = game;
 
-            nextLevelButton.Click += NextLevelButton_Click;
+            restartButton.Click += RestartButton_Click;
         }
 
-        public void UpdateScoreInfo()
+        private void RestartButton_Click(object sender, EventArgs e)
         {
-            scoreText.Text = $"Your score is: {game.PlayerScore}";
-        }
-
-        private void NextLevelButton_Click(object sender, EventArgs e)
-        {
-            game.LoadLevel(game.CurrentLevelNumber + 1);
+            game.RestartLevel();
         }
     }
 }

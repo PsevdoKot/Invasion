@@ -11,7 +11,7 @@ namespace Invasion.Domain.Projectiles
 {
     public class Missle : IProjectile
     {
-        public Image Image { get => new Bitmap(Resources.missle); }
+        public Image Image { get => Resources.missle; }
         public Projectile Type { get => Projectile.Missle; }
 
         public Vector Position { get; set; }

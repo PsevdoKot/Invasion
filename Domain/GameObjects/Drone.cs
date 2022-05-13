@@ -13,7 +13,7 @@ namespace Invasion.Domain.GameObjects
 {
     public class Drone : IGameObject
     {
-        public Image Image { get => new Bitmap(Resources.drone); }
+        public Image Image { get => Resources.drone; }
 
         public Vector Position { get; set; }
         public Size Size { get; set; }

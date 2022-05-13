@@ -32,6 +32,7 @@ namespace Invasion.Views
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BattleControl));
             this.table = new System.Windows.Forms.TableLayoutPanel();
             this.infoTable = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.projectilesTable = new System.Windows.Forms.TableLayoutPanel();
             this.cannonBallInfo = new System.Windows.Forms.Label();
             this.springyBallInfo = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@ namespace Invasion.Views
             // table
             // 
             this.table.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.table.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.table.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
             this.table.ColumnCount = 2;
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -81,6 +83,7 @@ namespace Invasion.Views
             this.infoTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
             this.infoTable.ColumnCount = 1;
             this.infoTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.infoTable.Controls.Add(this.label2, 0, 4);
             this.infoTable.Controls.Add(this.projectilesTable, 0, 3);
             this.infoTable.Controls.Add(this.levelInfo, 0, 0);
             this.infoTable.Controls.Add(this.timeInfo, 0, 1);
@@ -92,18 +95,29 @@ namespace Invasion.Views
             this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58F));
+            this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.infoTable.Size = new System.Drawing.Size(312, 796);
             this.infoTable.TabIndex = 0;
             this.infoTable.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.LevelInfo_OnPaint);
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 697);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(300, 48);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Shot power";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // projectilesTable
             // 
             this.projectilesTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
             this.projectilesTable.ColumnCount = 2;
-            this.projectilesTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.projectilesTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.projectilesTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.projectilesTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.projectilesTable.Controls.Add(this.cannonBallInfo, 1, 0);
             this.projectilesTable.Controls.Add(this.springyBallInfo, 1, 1);
             this.projectilesTable.Controls.Add(this.laserInfo, 1, 2);
@@ -120,7 +134,7 @@ namespace Invasion.Views
             this.projectilesTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.projectilesTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.projectilesTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.projectilesTable.Size = new System.Drawing.Size(300, 460);
+            this.projectilesTable.Size = new System.Drawing.Size(300, 445);
             this.projectilesTable.TabIndex = 0;
             // 
             // cannonBallInfo
@@ -128,9 +142,9 @@ namespace Invasion.Views
             this.cannonBallInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cannonBallInfo.Font = new System.Drawing.Font("Cooper Black", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cannonBallInfo.ForeColor = System.Drawing.Color.Black;
-            this.cannonBallInfo.Location = new System.Drawing.Point(241, 3);
+            this.cannonBallInfo.Location = new System.Drawing.Point(227, 3);
             this.cannonBallInfo.Name = "cannonBallInfo";
-            this.cannonBallInfo.Size = new System.Drawing.Size(53, 111);
+            this.cannonBallInfo.Size = new System.Drawing.Size(67, 107);
             this.cannonBallInfo.TabIndex = 0;
             this.cannonBallInfo.Text = "0";
             this.cannonBallInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -139,9 +153,9 @@ namespace Invasion.Views
             // 
             this.springyBallInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.springyBallInfo.Font = new System.Drawing.Font("Cooper Black", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.springyBallInfo.Location = new System.Drawing.Point(241, 117);
+            this.springyBallInfo.Location = new System.Drawing.Point(227, 113);
             this.springyBallInfo.Name = "springyBallInfo";
-            this.springyBallInfo.Size = new System.Drawing.Size(53, 111);
+            this.springyBallInfo.Size = new System.Drawing.Size(67, 107);
             this.springyBallInfo.TabIndex = 1;
             this.springyBallInfo.Text = "0";
             this.springyBallInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,9 +164,9 @@ namespace Invasion.Views
             // 
             this.laserInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.laserInfo.Font = new System.Drawing.Font("Cooper Black", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laserInfo.Location = new System.Drawing.Point(241, 231);
+            this.laserInfo.Location = new System.Drawing.Point(227, 223);
             this.laserInfo.Name = "laserInfo";
-            this.laserInfo.Size = new System.Drawing.Size(53, 111);
+            this.laserInfo.Size = new System.Drawing.Size(67, 107);
             this.laserInfo.TabIndex = 2;
             this.laserInfo.Text = "0";
             this.laserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -161,9 +175,9 @@ namespace Invasion.Views
             // 
             this.missleInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.missleInfo.Font = new System.Drawing.Font("Cooper Black", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.missleInfo.Location = new System.Drawing.Point(241, 345);
+            this.missleInfo.Location = new System.Drawing.Point(227, 333);
             this.missleInfo.Name = "missleInfo";
-            this.missleInfo.Size = new System.Drawing.Size(53, 112);
+            this.missleInfo.Size = new System.Drawing.Size(67, 109);
             this.missleInfo.TabIndex = 3;
             this.missleInfo.Text = "0";
             this.missleInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,8 +185,8 @@ namespace Invasion.Views
             // cannonBallImage
             // 
             this.cannonBallImage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cannonBallImage.Image = ((System.Drawing.Image)(resources.GetObject("cannonBallImage.Image")));
-            this.cannonBallImage.Location = new System.Drawing.Point(84, 23);
+            this.cannonBallImage.Image = global::Invasion.Properties.Resources.cannonBall;
+            this.cannonBallImage.Location = new System.Drawing.Point(77, 21);
             this.cannonBallImage.Name = "cannonBallImage";
             this.cannonBallImage.Size = new System.Drawing.Size(70, 70);
             this.cannonBallImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -183,7 +197,7 @@ namespace Invasion.Views
             // 
             this.springyBallImage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.springyBallImage.Image = ((System.Drawing.Image)(resources.GetObject("springyBallImage.Image")));
-            this.springyBallImage.Location = new System.Drawing.Point(84, 137);
+            this.springyBallImage.Location = new System.Drawing.Point(77, 131);
             this.springyBallImage.Name = "springyBallImage";
             this.springyBallImage.Size = new System.Drawing.Size(70, 70);
             this.springyBallImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -194,7 +208,7 @@ namespace Invasion.Views
             // 
             this.laserImage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.laserImage.Image = ((System.Drawing.Image)(resources.GetObject("laserImage.Image")));
-            this.laserImage.Location = new System.Drawing.Point(59, 281);
+            this.laserImage.Location = new System.Drawing.Point(52, 271);
             this.laserImage.Name = "laserImage";
             this.laserImage.Size = new System.Drawing.Size(120, 10);
             this.laserImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -205,7 +219,7 @@ namespace Invasion.Views
             // 
             this.missleImage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.missleImage.Image = ((System.Drawing.Image)(resources.GetObject("missleImage.Image")));
-            this.missleImage.Location = new System.Drawing.Point(44, 385);
+            this.missleImage.Location = new System.Drawing.Point(37, 371);
             this.missleImage.Name = "missleImage";
             this.missleImage.Size = new System.Drawing.Size(150, 32);
             this.missleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -306,5 +320,6 @@ namespace Invasion.Views
         private System.Windows.Forms.Label scoreInfo;
         private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

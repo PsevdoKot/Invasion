@@ -32,8 +32,6 @@ namespace Invasion
             game = new Game();
             game.StageChanged += GameStageChanged;
 
-            //MouseDown += new MouseEventHandler(battleControl.BattleControl_MouseClick);
-
             ShowStartScreen();
         }
 
@@ -59,6 +57,9 @@ namespace Invasion
                     break;
                 case GameStage.Finished:
                     ShowFinishedScreen();
+                    break;
+                case GameStage.Defeat:
+                    ShowDefeatScreen();
                     break;
                 case GameStage.Menu:
                 default:
@@ -94,7 +95,16 @@ namespace Invasion
             battleControl.StopUpdating();
             HideScreens();
             finishedControl.Configure(game);
+            finishedControl.UpdateScoreInfo();
             finishedControl.Show();
+        }
+
+        private void ShowDefeatScreen()
+        {
+            battleControl.StopUpdating();
+            HideScreens();
+            defeatControl.Configure(game);
+            defeatControl.Show();
         }
 
         private void HideScreens()
@@ -104,6 +114,7 @@ namespace Invasion
             levelSelectingControl.Hide();
             battleControl.Hide();
             finishedControl.Hide();
+            defeatControl.Hide();
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -111,23 +122,5 @@ namespace Invasion
             base.OnKeyDown(e);
             battleControl.HandleKey(e.KeyCode);
         }
-
-        //protected override void OnMouseDown(MouseEventArgs e)
-        //{
-        //    if (KeyPreview)
-        //    {
-        //        base.OnMouseDown(e);
-        //        battleControl.BattleControl_MouseClick(e);
-        //    }
-        //}
-
-        //protected override void OnMouseClick(MouseEventArgs e)
-        //{
-        //    if (KeyPreview)
-        //    {
-        //        base.OnMouseClick(e);
-        //        battleControl.BattleControl_MouseClick(e);
-        //    }
-        //}
     }
 }

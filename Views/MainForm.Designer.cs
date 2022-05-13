@@ -33,6 +33,7 @@ namespace Invasion
             this.levelSelectingControl = new Invasion.Views.LevelSelectingControl();
             this.battleControl = new Invasion.Views.BattleControl();
             this.finishedControl = new Invasion.Views.FinishedControl();
+            this.defeatControl = new Invasion.Views.DefeatControl();
             this.SuspendLayout();
             // 
             // menuControl
@@ -68,6 +69,14 @@ namespace Invasion
             this.finishedControl.Size = new System.Drawing.Size(1600, 881);
             this.finishedControl.TabIndex = 3;
             // 
+            // defeatControl
+            // 
+            this.defeatControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.defeatControl.Location = new System.Drawing.Point(0, 0);
+            this.defeatControl.Name = "defeatControl";
+            this.defeatControl.Size = new System.Drawing.Size(1600, 881);
+            this.defeatControl.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -77,6 +86,7 @@ namespace Invasion
             this.Controls.Add(this.levelSelectingControl);
             this.Controls.Add(this.battleControl);
             this.Controls.Add(this.finishedControl);
+            this.Controls.Add(this.defeatControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Name = "MainForm";
@@ -92,6 +102,7 @@ namespace Invasion
         private Invasion.Views.LevelSelectingControl levelSelectingControl;
         private Invasion.Views.BattleControl battleControl;
         private Invasion.Views.FinishedControl finishedControl;
+        private Invasion.Views.DefeatControl defeatControl;
     }
 }
 

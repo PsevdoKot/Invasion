@@ -11,7 +11,7 @@ namespace Invasion.Domain.Projectiles
 {
     public class CannonBall : IProjectile
     {
-        public Image Image { get => new Bitmap(Resources.cannonBall); }
+        public Image Image { get => Resources.cannonBall; }
         public Projectile Type { get => Projectile.CannonBall; }
 
         public Vector Position { get; set; }

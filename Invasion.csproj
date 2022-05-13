@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\LevelMaker.cs" />
     <Compile Include="Domain\Projectiles\Bullet.cs" />
     <Compile Include="Domain\GameObjects\Cannon.cs" />
     <Compile Include="Domain\Projectiles\CannonBall.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Domain\PointExtensions.cs" />
     <Compile Include="Domain\Enums\Projectile.cs" />
     <Compile Include="Domain\Vector.cs" />
+    <Compile Include="Folders.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,6 +78,12 @@
     </Compile>
     <Compile Include="Views\BattleControl.Designer.cs">
       <DependentUpon>BattleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DefeatControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DefeatControl.Designer.cs">
+      <DependentUpon>DefeatControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FinishedControl.cs">
       <SubType>UserControl</SubType>
@@ -110,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\BattleControl.resx">
       <DependentUpon>BattleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DefeatControl.resx">
+      <DependentUpon>DefeatControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FinishedControl.resx">
       <DependentUpon>FinishedControl.cs</DependentUpon>
@@ -175,6 +186,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\supplyCenter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Domain\Levels\Level_0.txt" />
+    <Content Include="Domain\Levels\Level_6.txt" />
+    <Content Include="Domain\Levels\Level_5.txt" />
+    <Content Include="Domain\Levels\Level_4.txt" />
+    <Content Include="Domain\Levels\Level_3.txt" />
+    <Content Include="Domain\Levels\Level_2.txt" />
+    <Content Include="Domain\Levels\Level_1.txt" />
+    <None Include="Resources\12.jpg" />
+    <None Include="Resources\2.jpg" />
+    <None Include="Resources\11.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,9 +63,9 @@ namespace Invasion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg5 {
+        internal static System.Drawing.Bitmap battleBackground {
             get {
-                object obj = ResourceManager.GetObject("bg5", resourceCulture);
+                object obj = ResourceManager.GetObject("battleBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +126,16 @@ namespace Invasion.Properties {
         internal static System.Drawing.Bitmap machineGun {
             get {
                 object obj = ResourceManager.GetObject("machineGun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menuBackground {
+            get {
+                object obj = ResourceManager.GetObject("menuBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -11,7 +11,7 @@ namespace Invasion.Domain.Projectiles
 {
     public class Laser : IProjectile
     {
-        public Image Image { get => new Bitmap(Resources.laser); }
+        public Image Image { get => Resources.laser; }
         public Projectile Type { get => Projectile.Laser; }
 
         public Vector Position { get; set; }

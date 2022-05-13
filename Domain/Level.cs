@@ -11,24 +11,25 @@ namespace Invasion.Domain
 {
 	public class Level
     {
-		public Cannon Cannon;
-		public ControlCenter ControlCenter;
-		public List<SupplyCenter> SupplyCenters;
-		public List<Drone> Drones;
-		public List<IGameObject> GameObjects;
-		public List<IProjectile> Projectiles;
-		public Vector RocketTargetPosition;
+		public Cannon Cannon { get; }
+		public ControlCenter ControlCenter { get; }
+		public List<SupplyCenter> SupplyCenters { get; }
+		public List<IGameObject> GameObjects { get; }
+		public int DroneAppearanceTime { get; }
+		public List<Drone> Drones { get; }
+		public List<IProjectile> Projectiles { get; }
+		public Vector RocketTargetPosition { get; set; }
 
 		public bool IsCompleted => ControlCenter.IsCrashed;
 
-		public Level(Cannon cannon, Vector cotrolCenterPos, List<Vector> supplyCenterPositions, List<IGameObject> walls)
+		public Level(Cannon cannon, Vector controlCenterPosition, List<Vector> supplyCenterPositions,
+			List<IGameObject> walls, int droneAppearanceTime)
 		{
 			Cannon = cannon;
-			ControlCenter = new ControlCenter(cotrolCenterPos);
-			SupplyCenters = new List<SupplyCenter>();
-			foreach (var scPosition in supplyCenterPositions)
-				SupplyCenters.Add(new SupplyCenter(scPosition));
+			ControlCenter = new ControlCenter(controlCenterPosition);
+			SupplyCenters = supplyCenterPositions.Select(position => new SupplyCenter(position)).ToList();
 			GameObjects = walls;
+			DroneAppearanceTime = droneAppearanceTime;
 			Drones = new List<Drone>();
 			Projectiles = new List<IProjectile>();
 		}

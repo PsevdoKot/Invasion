@@ -11,6 +11,7 @@ namespace Invasion.Domain.Enums
         Menu = 0,
         LevelSelecting = 1,
         Battle = 2,
-        Finished = 3
+        Finished = 3,
+        Defeat = 4
     }
 }
