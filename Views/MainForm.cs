@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Invasion.Domain;
-using Invasion.Domain.Enums;
 using Invasion.Domain.GameObjects;
 using Invasion.Views;
 

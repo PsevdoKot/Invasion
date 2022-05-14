@@ -1,5 +1,4 @@
 ﻿using Invasion.Domain;
-using Invasion.Domain.Enums;
 using Invasion.Domain.GameObjects;
 using Invasion.Properties;
 using System;
@@ -13,15 +12,12 @@ namespace Invasion.Domain
 {
     public class Cannon : IGameObject
     {
-        public Image Image { get => Resources.turret1; }
-        public Image Image2 { get => Resources.turret2; }
+        public Image Image { get; } = Resources.turret1;
+        public Image Image2 { get; } = Resources.turret2;
 
         public Vector Position { get; set; }
-        public Size Size { get; set; }
-        public Rectangle Collision
-        {
-            get => new Rectangle(Position.AsPoint().Add(-Size.Width / 2, -Size.Height / 2), Size);
-        }
+        public Size Size { get; }
+        public Rectangle Collision => new Rectangle(Position.AsPoint().Add(-Size.Width / 2, -Size.Height / 2), Size);
 
         private const double dAngle = 5;
         public double Direction { get; private set; }
@@ -52,18 +48,18 @@ namespace Invasion.Domain
             MachineGun = new MachineGun(Position);
         }
 
-        public void RotateDirection(Direction dir)
+        public void RotateDirection(Turn dir)
         {
-            if (dir == Enums.Direction.Down && Direction < 20)
+            if (dir == Turn.Left && Direction < 20)
                 Direction -= dAngle * (int)dir; 
-            else if (dir == Enums.Direction.Up && Direction > -200)
+            else if (dir == Turn.Right && Direction > -200)
                 Direction -= dAngle * (int)dir;
         }
 
-        public void ChangeShotPower(Direction dir)
+        public void ChangeShotPower(Turn dir)
         {
-            if (dir == Enums.Direction.Down && ShotPower > 10 ||
-                dir == Enums.Direction.Up && ShotPower < 100)
+            if (dir == Turn.Left && ShotPower > 10 ||
+                dir == Turn.Right && ShotPower < 100)
                 ShotPower += dPower * (int)dir;
         }
 

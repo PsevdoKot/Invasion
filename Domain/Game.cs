@@ -1,5 +1,4 @@
 ﻿using Invasion.Domain;
-using Invasion.Domain.Enums;
 using Invasion.Domain.GameObjects;
 using Invasion.Domain.Projectiles;
 using System;
@@ -65,7 +64,7 @@ namespace Invasion.Domain
             playerScoreAtLevelBeginning = PlayerScore;
             LevelTime = 0;
             CurrentLevelNumber = levelNumber;
-            CurrentLevel = LevelMaker.Levels[CurrentLevelNumber] ?? LevelMaker.LoadLevelFromFolder(Folders.Levels, CurrentLevelNumber);
+            CurrentLevel = /*LevelMaker.Levels[CurrentLevelNumber] ?? */LevelMaker.LoadLevelFromFolder(Folders.Levels, CurrentLevelNumber);
             ChangeStage(GameStage.Battle);
         }
 
@@ -101,6 +100,62 @@ namespace Invasion.Domain
         public string GetProjInfo(Projectile projType)
         {
             return CurrentLevel.Cannon.projInfo[projType].ToString();
+        }
+
+        /////
+        /////
+        /////
+
+        public void ShootByCannon()
+        {
+            if (CurrentLevel.Cannon.Shoot())
+            {
+                switch (CurrentLevel.Cannon.SelectedProj)
+                {
+                    case Projectile.CannonBall:
+                        CurrentLevel.Projectiles.Add(new CannonBall(CalculateShotPosition(),
+                            CurrentLevel.Cannon.Direction, CurrentLevel.Cannon.ShotPower));
+                        break;
+                    case Projectile.SpringyBall:
+                        CurrentLevel.Projectiles.Add(new SpringyBall(CalculateShotPosition(),
+                            CurrentLevel.Cannon.Direction, CurrentLevel.Cannon.ShotPower));
+                        break;
+                    case Projectile.Laser:
+                        CurrentLevel.Projectiles.Add(new Laser(CalculateShotPosition(),
+                            CurrentLevel.Cannon.Direction, CurrentLevel.Cannon.ShotPower));
+                        break;
+                    case Projectile.Missle:
+                        CurrentLevel.Projectiles.Add(new Missle(CalculateShotPosition(), CurrentLevel.RocketTargetPosition,
+                            CurrentLevel.Cannon.Direction, CurrentLevel.Cannon.ShotPower));
+                        break;
+                }
+            }
+        }
+
+        public void ShootByMachineGun()
+        {
+            if (CurrentLevel.Cannon.MachineGun.Shoot())
+            {
+                var angleInRad = CurrentLevel.Cannon.MachineGun.Direction * Math.PI / 180;
+                CurrentLevel.Projectiles.Add(new Bullet(new Vector(
+                    CurrentLevel.Cannon.MachineGun.Position.X + 20 * Math.Cos(angleInRad) - 5,
+                    CurrentLevel.Cannon.MachineGun.Position.Y + 20 * Math.Sin(angleInRad)),
+                    CurrentLevel.Cannon.MachineGun.Direction, CurrentLevel.Cannon.ShotPower));
+            }
+        }
+
+        private Vector CalculateShotPosition()
+        {
+            var angleInRad = CurrentLevel.Cannon.Direction * Math.PI / 180;
+            return new Vector(CurrentLevel.Cannon.Position.X + 100 * Math.Cos(angleInRad),
+                              CurrentLevel.Cannon.Position.Y + 100 * Math.Sin(angleInRad) - 10);
+        }
+
+        public void SelectTargetPosition(Point mouseLocationOnBattleGround)
+        {
+            CurrentLevel.RocketTargetPosition = CurrentLevel.RocketTargetPosition == null
+                        ? new Vector(mouseLocationOnBattleGround)
+                        : null;
         }
 
         /////
@@ -152,20 +207,33 @@ namespace Invasion.Domain
                 }
             }
 
+            bool flag;
             for (var i = 0; i < CurrentLevel.Projectiles.Count; i++)
             {
+                flag = false;
                 var proj = CurrentLevel.Projectiles[i];
 
                 if (proj.Type == Projectile.Bullet)
                 {
                     for (var j = 0; j < CurrentLevel.Drones.Count; j++)
                     {
-                        var dr = CurrentLevel.Drones[j];
-                        if (proj.Collision.IntersectsWith(dr.Collision))
+                        var drone = CurrentLevel.Drones[j];
+                        if (proj.Collision.IntersectsWith(drone.Collision))
                         {
-                            CurrentLevel.Drones.Remove(dr);
+                            CurrentLevel.Drones.Remove(drone);
                             j--;
 
+                            CurrentLevel.Projectiles.Remove(proj);
+                            i--;
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag) break;
+                    for (var j = 0; j < CurrentLevel.Walls.Count; j++)
+                    {
+                        if (proj.Collision.IntersectsWith(CurrentLevel.Walls[j].Collision))
+                        {
                             CurrentLevel.Projectiles.Remove(proj);
                             i--;
                             break;
@@ -192,11 +260,27 @@ namespace Invasion.Domain
 
                             CurrentLevel.Projectiles.Remove(proj);
                             i--;
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag) break;
+                    for (var j = 0; j < CurrentLevel.Walls.Count; j++)
+                    {
+                        var wall = CurrentLevel.Walls[j];
+                        if (proj.Collision.IntersectsWith(wall.Collision))
+                        {
+                            if (wall.Type == Wall.FragileWall)
+                            {
+                                CurrentLevel.Walls.Remove(wall);
+                                j--;
+                            }
+                            CurrentLevel.Projectiles.Remove(proj);
+                            i--;
                             break;
                         }
                     }
                 }
-                // ++projs with walls,
             }
         }
 

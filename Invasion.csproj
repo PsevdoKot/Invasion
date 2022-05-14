@@ -46,15 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Walls\IWall.cs" />
+    <Compile Include="Domain\Walls\Wall.cs" />
+    <Compile Include="Domain\Walls\FragileWall.cs" />
+    <Compile Include="Domain\Walls\ReflectiveWall.cs" />
+    <Compile Include="Domain\Walls\SolidWall.cs" />
     <Compile Include="Domain\LevelMaker.cs" />
     <Compile Include="Domain\Projectiles\Bullet.cs" />
     <Compile Include="Domain\GameObjects\Cannon.cs" />
     <Compile Include="Domain\Projectiles\CannonBall.cs" />
     <Compile Include="Domain\GameObjects\ControlCenter.cs" />
-    <Compile Include="Domain\Enums\Direction.cs" />
+    <Compile Include="Domain\Turn.cs" />
     <Compile Include="Domain\Game.cs" />
-    <Compile Include="Domain\Enums\GameObject.cs" />
-    <Compile Include="Domain\Enums\GameStage.cs" />
+    <Compile Include="Domain\GameObjects\GameObject.cs" />
+    <Compile Include="Domain\GameStage.cs" />
     <Compile Include="Domain\GameObjects\Drone.cs" />
     <Compile Include="Domain\Projectiles\Laser.cs" />
     <Compile Include="Domain\GameObjects\MachineGun.cs" />
@@ -65,7 +70,7 @@
     <Compile Include="Domain\GameObjects\SupplyCenter.cs" />
     <Compile Include="Domain\Level.cs" />
     <Compile Include="Domain\PointExtensions.cs" />
-    <Compile Include="Domain\Enums\Projectile.cs" />
+    <Compile Include="Domain\Projectiles\Projectile.cs" />
     <Compile Include="Domain\Vector.cs" />
     <Compile Include="Folders.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -152,9 +157,6 @@
     <Folder Include="Tests\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\bg5.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Images\bullet.png" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +190,7 @@
     <None Include="Images\supplyCenter.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Domain\Levels\ForExplanations.txt" />
     <Content Include="Domain\Levels\Level_0.txt" />
     <Content Include="Domain\Levels\Level_6.txt" />
     <Content Include="Domain\Levels\Level_5.txt" />
@@ -195,9 +198,12 @@
     <Content Include="Domain\Levels\Level_3.txt" />
     <Content Include="Domain\Levels\Level_2.txt" />
     <Content Include="Domain\Levels\Level_1.txt" />
-    <None Include="Resources\12.jpg" />
-    <None Include="Resources\2.jpg" />
-    <None Include="Resources\11.jpg" />
+    <None Include="Images\solidWall.png" />
+    <None Include="Images\fragileWall.png" />
+    <None Include="Images\droneExplosion.png" />
+    <None Include="Images\centerExplosion.png" />
+    <None Include="Images\battleBackground.jpg" />
+    <None Include="Images\menuBackground.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,4 @@
 ﻿using Invasion.Domain;
-using Invasion.Domain.Enums;
 using Invasion.Domain.GameObjects;
 using Invasion.Properties;
 using System;
@@ -13,10 +12,10 @@ namespace Invasion.Domain.GameObjects
 {
     public class Drone : IGameObject
     {
-        public Image Image { get => Resources.drone; }
+        public Image Image { get; } = Resources.drone;
 
         public Vector Position { get; set; }
-        public Size Size { get; set; }
+        public Size Size { get; }
         public Rectangle Collision
         {
             get

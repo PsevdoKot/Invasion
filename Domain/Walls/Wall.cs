@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Invasion.Domain.Enums
+namespace Invasion.Domain
 {
-    public enum Direction
+    public enum Wall
     {
-        Down = -1,
-        Up = 1
+        SolidWall = 0,
+        FragileWall = 1,
+        ReflectiveWall = 2,
     }
 }

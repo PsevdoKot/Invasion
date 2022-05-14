@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Invasion.Domain;
 using Invasion.Domain.GameObjects;
 using Invasion.Domain.Projectiles;
+using Invasion.Domain.Walls;
 
 namespace Invasion.Domain
 {
@@ -14,8 +15,9 @@ namespace Invasion.Domain
 		public Cannon Cannon { get; }
 		public ControlCenter ControlCenter { get; }
 		public List<SupplyCenter> SupplyCenters { get; }
-		public List<IGameObject> GameObjects { get; }
+		public List<IWall> Walls { get; }
 		public int DroneAppearanceTime { get; }
+
 		public List<Drone> Drones { get; }
 		public List<IProjectile> Projectiles { get; }
 		public Vector RocketTargetPosition { get; set; }
@@ -23,12 +25,12 @@ namespace Invasion.Domain
 		public bool IsCompleted => ControlCenter.IsCrashed;
 
 		public Level(Cannon cannon, Vector controlCenterPosition, List<Vector> supplyCenterPositions,
-			List<IGameObject> walls, int droneAppearanceTime)
+			List<IWall> walls, int droneAppearanceTime)
 		{
 			Cannon = cannon;
 			ControlCenter = new ControlCenter(controlCenterPosition);
 			SupplyCenters = supplyCenterPositions.Select(position => new SupplyCenter(position)).ToList();
-			GameObjects = walls;
+			Walls = walls;
 			DroneAppearanceTime = droneAppearanceTime;
 			Drones = new List<Drone>();
 			Projectiles = new List<IProjectile>();

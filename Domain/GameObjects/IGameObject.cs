@@ -12,7 +12,7 @@ namespace Invasion.Domain.GameObjects
         Image Image { get; }
 
         Vector Position { get; set; }
-        Size Size { get; set; }
+        Size Size { get; }
         Rectangle Collision { get; }
     }
 }

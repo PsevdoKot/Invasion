@@ -1,5 +1,4 @@
 ﻿using Invasion.Domain;
-using Invasion.Domain.Enums;
 using Invasion.Domain.GameObjects;
 using Invasion.Properties;
 using System;
@@ -13,7 +12,7 @@ namespace Invasion.Domain
 {
     public class MachineGun
     {
-        public Image Image { get => Resources.machineGun; }
+        public Image Image { get; } = Resources.machineGun;
 
         public Vector Position { get; set; }
 

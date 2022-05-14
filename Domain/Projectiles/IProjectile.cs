@@ -1,5 +1,4 @@
-﻿using Invasion.Domain.Enums;
-using Invasion.Domain.GameObjects;
+﻿using Invasion.Domain.GameObjects;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

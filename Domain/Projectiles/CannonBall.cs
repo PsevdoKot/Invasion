@@ -1,5 +1,4 @@
-﻿using Invasion.Domain.Enums;
-using Invasion.Properties;
+﻿using Invasion.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,15 +10,12 @@ namespace Invasion.Domain.Projectiles
 {
     public class CannonBall : IProjectile
     {
-        public Image Image { get => Resources.cannonBall; }
-        public Projectile Type { get => Projectile.CannonBall; }
+        public Image Image { get; } = Resources.cannonBall;
+        public Projectile Type { get; } = Projectile.CannonBall;
 
         public Vector Position { get; set; }
-        public Size Size { get; set; }
-        public Rectangle Collision
-        {
-            get => new Rectangle(Position.AsPoint().Add(-Size.Width / 2, -Size.Height / 2), Size);
-        }
+        public Size Size { get; }
+        public Rectangle Collision => new Rectangle(Position.AsPoint().Add(-Size.Width / 2, -Size.Height / 2), Size);
 
         public Vector MoveVector { get; set; }
         public double Direction { get; set; }

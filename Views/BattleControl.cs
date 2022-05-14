@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Invasion.Domain;
-using Invasion.Domain.Enums;
 using Invasion.Domain.GameObjects;
 using Invasion.Properties;
 using Invasion.Domain.Projectiles;
@@ -27,7 +26,8 @@ namespace Invasion.Views
         private Timer uiTimer;
 
         private int leftBorder, topBorder, bgWidth, bgHeight;
-        private Rectangle battleGround;
+
+        private Matrix initialMatrix;
 
         public BattleControl()
         {
@@ -60,8 +60,6 @@ namespace Invasion.Views
 
             bgWidth = ClientRectangle.Width - leftBorder - 0;
             bgHeight = ClientRectangle.Height - topBorder - 65;
-
-            battleGround = new Rectangle(leftBorder, topBorder, bgWidth, bgHeight);
         }
 
         public void Configure(Game game)
@@ -77,7 +75,7 @@ namespace Invasion.Views
             timeInfo.Text = "00:00";
             levelInfo.Text = $"Level {game.CurrentLevelNumber}";
 
-            UpdateProjInfo();
+            UpdateProjectileInfo();
         }
 
         public void StopUpdating()
@@ -102,23 +100,23 @@ namespace Invasion.Views
         {
             switch (e)
             {
-                case Keys.X:
-                    level.Cannon.RotateDirection(Direction.Up);
-                    break;
-                case Keys.V:
-                    level.Cannon.RotateDirection(Direction.Down);
+                case Keys.A:
+                    level.Cannon.RotateDirection(Turn.Right);
                     break;
                 case Keys.D:
-                    level.Cannon.ChangeShotPower(Direction.Up);
+                    level.Cannon.RotateDirection(Turn.Left);
+                    break;
+                case Keys.W:
+                    level.Cannon.ChangeShotPower(Turn.Right);
                     infoTable.Invalidate();
                     break;
-                case Keys.C:
-                    level.Cannon.ChangeShotPower(Direction.Down);
+                case Keys.S:
+                    level.Cannon.ChangeShotPower(Turn.Left);
                     infoTable.Invalidate();
                     break;
                 case Keys.F:
                     level.Cannon.ChooseProjectile(level.Cannon.SelectedProj + 1);
-                    UpdateProjInfo();
+                    UpdateProjectileInfo();
                     break;
                 case Keys.R:
                     game.RestartLevel();
@@ -132,58 +130,16 @@ namespace Invasion.Views
             {
                 case MouseButtons.Left:
                     level.Cannon.MachineGun.RotateDirectionTo(new Vector(e.Location.Add(-leftBorder, -topBorder)));
-                    ShootByMachineGun();
+                    game.ShootByMachineGun();
                     break;
                 case MouseButtons.Right:
-                    ShootByCannon();
-                    UpdateProjInfo();
+                    game.ShootByCannon();
+                    UpdateProjectileInfo();
                     break;
                 case MouseButtons.Middle:
-                    level.RocketTargetPosition = level.RocketTargetPosition == null 
-                        ? new Vector(e.Location.Add(-leftBorder, -topBorder))
-                        : null;
+                    game.SelectTargetPosition(e.Location.Add(-leftBorder, -topBorder));
                     break;
             }
-        }
-
-        private void ShootByCannon()
-        {
-            if (level.Cannon.Shoot())
-            {
-                switch (level.Cannon.SelectedProj)
-                {
-                    case Projectile.CannonBall:
-                        level.Projectiles.Add(new CannonBall(CalculateShotPosition(), level.Cannon.Direction, level.Cannon.ShotPower));
-                        break;
-                    case Projectile.SpringyBall:
-                        level.Projectiles.Add(new SpringyBall(CalculateShotPosition(), level.Cannon.Direction, level.Cannon.ShotPower));
-                        break;
-                    case Projectile.Laser:
-                        level.Projectiles.Add(new Laser(CalculateShotPosition(), level.Cannon.Direction, level.Cannon.ShotPower));
-                        break;
-                    case Projectile.Missle:
-                        level.Projectiles.Add(new Missle(CalculateShotPosition(), level.RocketTargetPosition,
-                            level.Cannon.Direction, level.Cannon.ShotPower));
-                        break;
-                }
-            }
-        }
-
-        private void ShootByMachineGun()
-        {
-            if (level.Cannon.MachineGun.Shoot())
-            {
-                level.Projectiles.Add(new Bullet(new Vector(
-                    level.Cannon.MachineGun.Position.X + 20 * Math.Cos(level.Cannon.MachineGun.Direction * Math.PI / 180) - 5,
-                    level.Cannon.MachineGun.Position.Y + 20 * Math.Sin(level.Cannon.MachineGun.Direction * Math.PI / 180)),
-                    level.Cannon.MachineGun.Direction, level.Cannon.ShotPower));
-            }
-        }
-
-        private Vector CalculateShotPosition()
-        {
-            return new Vector(level.Cannon.Position.X + 100 * Math.Cos(level.Cannon.Direction * Math.PI / 180),
-                level.Cannon.Position.Y + 100 * Math.Sin(level.Cannon.Direction * Math.PI / 180) - 10);
         }
 
         /////
@@ -197,7 +153,7 @@ namespace Invasion.Views
             timeInfo.Text = game.GetTime();
         }
 
-        public void UpdateProjInfo()
+        public void UpdateProjectileInfo()
         {
             cannonBallInfo.Text = game.GetProjInfo(Projectile.CannonBall);
             springyBallInfo.Text = game.GetProjInfo(Projectile.SpringyBall);
@@ -241,7 +197,6 @@ namespace Invasion.Views
 
         private void Table_OnPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
-            //var image = new Bitmap(Resources._11, bgWidth, bgHeight);
             var image = new Bitmap(bgWidth, bgHeight);
             var graph = Graphics.FromImage(image);
             DrawTo(graph);
@@ -251,52 +206,85 @@ namespace Invasion.Views
         private void DrawTo(Graphics g)
         {
             g.SmoothingMode = SmoothingMode.AntiAlias;
-            //g.FillRectangle(/*Brushes.Gainsboro*/Brushes.Gray, 0, 0, bgWidth, bgHeight);
 
-            var matrix = g.Transform;
+            initialMatrix = g.Transform;
 
-            // cannon
+            DrawCannon(g);
+            DrawMachineGun(g);
+            DrawControlCenter(g);
+            DrawSupplyCenters(g);
+            DrawWalls(g);
+            DrawDrones(g);
+            DrawProjectiles(g);
+            DrawRocketTarget(g);
+        }
+
+        private void DrawCannon(Graphics g)
+        {
             g.TranslateTransform((float)level.Cannon.Position.X, (float)level.Cannon.Position.Y);
             g.DrawImage(level.Cannon.Image2, -15, 0, 30, 70);
             g.RotateTransform((level.Cannon.IsFliped ? 0 : 180) + (float)level.Cannon.Direction);
             g.DrawImage(level.Cannon.Image, level.Cannon.IsFliped ? 100 : -100, -15, level.Cannon.IsFliped ? -150 : 150, 30);
+            g.Transform = initialMatrix;
+        }
 
-            // machine gun
-            g.Transform = matrix;
+        private void DrawMachineGun(Graphics g)
+        {
             g.TranslateTransform((float)level.Cannon.Position.X, (float)level.Cannon.Position.Y + 5);
             g.RotateTransform((level.Cannon.MachineGun.IsFliped ? 180 : 0) + (float)level.Cannon.MachineGun.Direction);
             g.DrawImage(level.Cannon.MachineGun.Image, level.Cannon.MachineGun.IsFliped ? 20 : -20, -20,
                 level.Cannon.MachineGun.IsFliped ? -50 : 50, 30);
+            g.Transform = initialMatrix;
+        }
 
-            // controlCenter
-            g.Transform = matrix;
+        private void DrawControlCenter(Graphics g)
+        {
             g.DrawImage(level.ControlCenter.Image, level.ControlCenter.Collision);
+        }
 
-            // supplyCenters
+        private void DrawSupplyCenters(Graphics g)
+        {
             foreach (var supplyCenter in level.SupplyCenters)
             {
                 g.DrawImage(supplyCenter.Image, supplyCenter.Collision);
             }
+        }
 
-            // drones
+        private void DrawWalls(Graphics g)
+        {
+            foreach (var wall in level.Walls)
+            {
+                g.TranslateTransform((float)wall.Position.X, (float)wall.Position.Y);
+                g.RotateTransform((float)wall.InclinationAngle);
+                g.DrawImage(wall.Image, -wall.Size.Width / 2, -wall.Size.Height / 2, wall.Size.Width, wall.Size.Height);
+                g.Transform = initialMatrix;
+            }
+        }
+
+        private void DrawDrones(Graphics g)
+        {
             foreach (var drone in level.Drones)
             {
                 g.TranslateTransform((float)drone.Position.X, (float)drone.Position.Y);
                 g.RotateTransform((float)drone.Direction);
                 g.DrawImage(drone.Image, -drone.Size.Width / 2, -drone.Size.Height / 2, drone.Size.Width, drone.Size.Height);
-                g.Transform = matrix;
+                g.Transform = initialMatrix;
             }
+        }
 
-            // projectiles
+        private void DrawProjectiles(Graphics g)
+        {
             foreach (var projectile in level.Projectiles)
             {
                 g.TranslateTransform((float)projectile.Position.X, (float)projectile.Position.Y);
                 g.RotateTransform((float)projectile.Direction);
                 g.DrawImage(projectile.Image, -projectile.Size.Width / 2, -projectile.Size.Height / 2, projectile.Size.Width, projectile.Size.Height);
-                g.Transform = matrix;
+                g.Transform = initialMatrix;
             }
+        }
 
-            // rocket target
+        private void DrawRocketTarget(Graphics g)
+        {
             if (level.RocketTargetPosition != null)
             {
                 g.TranslateTransform((float)level.RocketTargetPosition.X, (float)level.RocketTargetPosition.Y);

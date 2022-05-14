@@ -12,7 +12,8 @@ supply centers positions
 700 350
 |
 walls
-
+500 500;100 40;135;fragile
+900 100;150 40;0;solid
 |
 droneAppearanceTime
 10

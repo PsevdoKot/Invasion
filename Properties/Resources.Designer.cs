@@ -93,6 +93,16 @@ namespace Invasion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap centerExplosion {
+            get {
+                object obj = ResourceManager.GetObject("centerExplosion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap controlCenter {
             get {
                 object obj = ResourceManager.GetObject("controlCenter", resourceCulture);
@@ -106,6 +116,26 @@ namespace Invasion.Properties {
         internal static System.Drawing.Bitmap drone {
             get {
                 object obj = ResourceManager.GetObject("drone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap droneExplosion {
+            get {
+                object obj = ResourceManager.GetObject("droneExplosion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fragileWall {
+            get {
+                object obj = ResourceManager.GetObject("fragileWall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +176,16 @@ namespace Invasion.Properties {
         internal static System.Drawing.Bitmap missle {
             get {
                 object obj = ResourceManager.GetObject("missle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap solidWall {
+            get {
+                object obj = ResourceManager.GetObject("solidWall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

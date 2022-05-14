@@ -185,7 +185,7 @@ namespace Invasion.Views
             // cannonBallImage
             // 
             this.cannonBallImage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cannonBallImage.Image = global::Invasion.Properties.Resources.cannonBall;
+            this.cannonBallImage.Image = ((System.Drawing.Image)(resources.GetObject("cannonBallImage.Image")));
             this.cannonBallImage.Location = new System.Drawing.Point(77, 21);
             this.cannonBallImage.Name = "cannonBallImage";
             this.cannonBallImage.Size = new System.Drawing.Size(70, 70);

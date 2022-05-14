@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Invasion.Domain.Enums
+namespace Invasion.Domain
 {
     public enum GameStage
     {
