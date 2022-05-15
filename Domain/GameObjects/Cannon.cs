@@ -1,5 +1,6 @@
 ﻿using Invasion.Domain;
 using Invasion.Domain.GameObjects;
+using Invasion.Domain.Projectiles;
 using Invasion.Properties;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Invasion.Domain
+namespace Invasion.Domain.GameObjects
 {
     public class Cannon : IGameObject
     {
@@ -16,37 +17,36 @@ namespace Invasion.Domain
         public Image Image2 { get; } = Resources.turret2;
 
         public Vector Position { get; set; }
-        public Size Size { get; }
-        public Rectangle Collision => new Rectangle(Position.AsPoint().Add(-Size.Width / 2, -Size.Height / 2), Size);
+        public Size Size { get; } = new Size(120, 65);
+        public Rectangle Collision { get; }
 
         private const double dAngle = 5;
-        public double Direction { get; private set; }
-        public bool IsFliped { get => Direction > -90; }
+        public double Direction { get; private set; } = 0;
+        public bool IsFliped => Direction > -90; 
 
         private const int dPower = 5;
-        public int ShotPower { get; private set; }
+        public int ShotPower { get; private set; } = 50;
 
-        public Projectile SelectedProj { get; private set; }
-        public Dictionary<Projectile, int> projInfo;
+        public Projectile SelectedProjectile { get; private set; } = 0;
+        public Dictionary<Projectile, int> Ammunition;
 
-        private const int mgOffsetX = 0;
-        private const int mgOffsetY = 0;
         public MachineGun MachineGun;
 
         public Cannon(Vector position, int[] ammunition)
         {
-            Position = position;
-            Size = new Size(120, 65);
-            Direction = 0;
-            ShotPower = 50;
-            SelectedProj = 0;
-            projInfo = new Dictionary<Projectile, int>();
-            projInfo[Projectile.CannonBall] = ammunition[0];
-            projInfo[Projectile.SpringyBall] = ammunition[1];
-            projInfo[Projectile.Laser] = ammunition[2];
-            projInfo[Projectile.Missle] = ammunition[3];
+            Position = position.NormalizeForBounds(new Rectangle(0, 0, 1700, 800));
+            Collision = new Rectangle(Position.AsPoint().Add(-Size.Width / 2, -Size.Height / 2), Size);
+            Ammunition = new Dictionary<Projectile, int>
+            {
+                [Projectile.CannonBall] = NormalizeProjectileCount(ammunition[0]),
+                [Projectile.SpringyBall] = NormalizeProjectileCount(ammunition[1]),
+                [Projectile.Laser] = NormalizeProjectileCount(ammunition[2]),
+                [Projectile.Missle] = NormalizeProjectileCount(ammunition[3])
+            };
             MachineGun = new MachineGun(Position);
         }
+
+        private int NormalizeProjectileCount(int count) => count < 0 ? 0 : count;
 
         public void RotateDirection(Turn dir)
         {
@@ -65,14 +65,14 @@ namespace Invasion.Domain
 
         public void ChooseProjectile(Projectile proj)
         {
-            SelectedProj = (Projectile)((int)proj % 4);
+            SelectedProjectile = (Projectile)((int)proj % 4);
         }
 
         public bool Shoot()
         {
-            if (projInfo[SelectedProj] != 0)
+            if (Ammunition[SelectedProjectile] != 0)
             {
-                projInfo[SelectedProj]--;
+                Ammunition[SelectedProjectile]--;
                 return true;
             }
             return false;

@@ -5,13 +5,19 @@ ammunition
 99 99 99 99
 |
 control center position
-1100 200
+700 250
 |
 supply centers positions
-200 200
+250 200
 |
 walls
-
+300 700;300 60;0;solid
+500 400;300 60;0;solid
+700 400;300 60;0;solid
+100 400;300 60;90;solid
+600 200;300 60;90;solid
+1200 420;300 60;90;reflective
+1150 450;200 40;90;fragile
 |
 droneAppearanceTime
 666

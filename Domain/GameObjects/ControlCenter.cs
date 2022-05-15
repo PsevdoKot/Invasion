@@ -8,24 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Invasion.Domain
+namespace Invasion.Domain.GameObjects
 {
     public class ControlCenter : IGameObject
     {
         public Image Image { get; } = Resources.controlCenter;
 
         public Vector Position { get; set; }
-        public Size Size { get; }
-        public Rectangle Collision => new Rectangle(Position.AsPoint().Add(-Size.Width / 2, -Size.Height / 2), Size);
+        public Size Size { get; } = new Size(100, 100);
+        public Rectangle Collision { get; }
 
         public bool IsCrashed { get; set; }
-        //public int Health;
 
-        public ControlCenter(Vector controlCenterPos)
+        public ControlCenter(Vector position)
         {
-            Position = controlCenterPos;
-            Size = new Size(100, 100);
-            //Health = 100;
+            Position = position.NormalizeForBounds(new Rectangle(0, 0, 1700, 800)); ;
+            Collision = new Rectangle(Position.AsPoint().Add(-Size.Width / 2, -Size.Height / 2), Size);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Invasion.Domain.GameObjects
         public Image Image { get; } = Resources.drone;
 
         public Vector Position { get; set; }
-        public Size Size { get; }
+        public Size Size { get; } = new Size(40, 40);
         public Rectangle Collision
         {
             get
@@ -27,19 +27,15 @@ namespace Invasion.Domain.GameObjects
 
         public Vector MoveVector { get; set; }
         public double Direction { get; set; }
-        public double MoveSpeed { get; set; }
+        public double MoveSpeed { get; set; } = 20;
 
         public bool IsCrashed { get; set; }
-        //public int Health;
 
         public Drone(Vector dronePos, Vector cannonPos)
         {
-            Position = dronePos;
-            Size = new Size(40, 40);
+            Position = dronePos.NormalizeForBounds(new Rectangle(0, 0, 1700, 800));
             Direction = (cannonPos - Position).Angle * 180 / Math.PI;
-            MoveSpeed = 20;
             MoveVector = Vector.Build(MoveSpeed, Direction * Math.PI / 180);
-            //Health = 100;
         }
 
         public void Move()

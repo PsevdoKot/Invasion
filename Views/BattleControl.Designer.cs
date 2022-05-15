@@ -38,15 +38,15 @@ namespace Invasion.Views
             this.springyBallInfo = new System.Windows.Forms.Label();
             this.laserInfo = new System.Windows.Forms.Label();
             this.missleInfo = new System.Windows.Forms.Label();
-            this.cannonBallImage = new System.Windows.Forms.PictureBox();
-            this.springyBallImage = new System.Windows.Forms.PictureBox();
-            this.laserImage = new System.Windows.Forms.PictureBox();
-            this.missleImage = new System.Windows.Forms.PictureBox();
             this.levelInfo = new System.Windows.Forms.Label();
             this.timeInfo = new System.Windows.Forms.Label();
             this.scoreInfo = new System.Windows.Forms.Label();
             this.menuButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.cannonBallImage = new System.Windows.Forms.PictureBox();
+            this.springyBallImage = new System.Windows.Forms.PictureBox();
+            this.laserImage = new System.Windows.Forms.PictureBox();
+            this.missleImage = new System.Windows.Forms.PictureBox();
             this.table.SuspendLayout();
             this.infoTable.SuspendLayout();
             this.projectilesTable.SuspendLayout();
@@ -182,50 +182,6 @@ namespace Invasion.Views
             this.missleInfo.Text = "0";
             this.missleInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cannonBallImage
-            // 
-            this.cannonBallImage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cannonBallImage.Image = ((System.Drawing.Image)(resources.GetObject("cannonBallImage.Image")));
-            this.cannonBallImage.Location = new System.Drawing.Point(77, 21);
-            this.cannonBallImage.Name = "cannonBallImage";
-            this.cannonBallImage.Size = new System.Drawing.Size(70, 70);
-            this.cannonBallImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cannonBallImage.TabIndex = 4;
-            this.cannonBallImage.TabStop = false;
-            // 
-            // springyBallImage
-            // 
-            this.springyBallImage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.springyBallImage.Image = ((System.Drawing.Image)(resources.GetObject("springyBallImage.Image")));
-            this.springyBallImage.Location = new System.Drawing.Point(77, 131);
-            this.springyBallImage.Name = "springyBallImage";
-            this.springyBallImage.Size = new System.Drawing.Size(70, 70);
-            this.springyBallImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.springyBallImage.TabIndex = 5;
-            this.springyBallImage.TabStop = false;
-            // 
-            // laserImage
-            // 
-            this.laserImage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.laserImage.Image = ((System.Drawing.Image)(resources.GetObject("laserImage.Image")));
-            this.laserImage.Location = new System.Drawing.Point(52, 271);
-            this.laserImage.Name = "laserImage";
-            this.laserImage.Size = new System.Drawing.Size(120, 10);
-            this.laserImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.laserImage.TabIndex = 6;
-            this.laserImage.TabStop = false;
-            // 
-            // missleImage
-            // 
-            this.missleImage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.missleImage.Image = ((System.Drawing.Image)(resources.GetObject("missleImage.Image")));
-            this.missleImage.Location = new System.Drawing.Point(37, 371);
-            this.missleImage.Name = "missleImage";
-            this.missleImage.Size = new System.Drawing.Size(150, 32);
-            this.missleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.missleImage.TabIndex = 7;
-            this.missleImage.TabStop = false;
-            // 
             // levelInfo
             // 
             this.levelInfo.AutoSize = true;
@@ -282,6 +238,50 @@ namespace Invasion.Views
             this.label1.TabIndex = 2;
             this.label1.Text = resources.GetString("label1.Text");
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cannonBallImage
+            // 
+            this.cannonBallImage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cannonBallImage.Image = global::Invasion.Properties.Resources.cannonBall;
+            this.cannonBallImage.Location = new System.Drawing.Point(77, 21);
+            this.cannonBallImage.Name = "cannonBallImage";
+            this.cannonBallImage.Size = new System.Drawing.Size(70, 70);
+            this.cannonBallImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cannonBallImage.TabIndex = 4;
+            this.cannonBallImage.TabStop = false;
+            // 
+            // springyBallImage
+            // 
+            this.springyBallImage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.springyBallImage.Image = global::Invasion.Properties.Resources.springyBall;
+            this.springyBallImage.Location = new System.Drawing.Point(77, 131);
+            this.springyBallImage.Name = "springyBallImage";
+            this.springyBallImage.Size = new System.Drawing.Size(70, 70);
+            this.springyBallImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.springyBallImage.TabIndex = 5;
+            this.springyBallImage.TabStop = false;
+            // 
+            // laserImage
+            // 
+            this.laserImage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.laserImage.Image = global::Invasion.Properties.Resources.laser;
+            this.laserImage.Location = new System.Drawing.Point(52, 271);
+            this.laserImage.Name = "laserImage";
+            this.laserImage.Size = new System.Drawing.Size(120, 10);
+            this.laserImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.laserImage.TabIndex = 6;
+            this.laserImage.TabStop = false;
+            // 
+            // missleImage
+            // 
+            this.missleImage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.missleImage.Image = global::Invasion.Properties.Resources.missle;
+            this.missleImage.Location = new System.Drawing.Point(37, 371);
+            this.missleImage.Name = "missleImage";
+            this.missleImage.Size = new System.Drawing.Size(150, 32);
+            this.missleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.missleImage.TabIndex = 7;
+            this.missleImage.TabStop = false;
             // 
             // BattleControl
             // 

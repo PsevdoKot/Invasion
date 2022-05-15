@@ -77,7 +77,7 @@ namespace Invasion.Domain
 
 		public Vector Normalize()
 		{
-			return Length > 0 ? this * (1 / Length) : this;
+			return Length > 0 ? this / Length : this;
 		}
 
 		public static Vector Build(double length, double angle)
@@ -98,6 +98,14 @@ namespace Invasion.Domain
 		public Point AsPoint()
 		{
 			return new Point((int)X, (int)Y);
+		}
+
+		public Vector NormalizeForBounds(Rectangle rect)
+        {
+			double x, y;
+			x = X < rect.X ? 0 : X > rect.Width ? rect.X + rect.Width : X;
+			y = Y < rect.Y ? 0 : Y > rect.Height ? rect.Y + rect.Height : Y;
+			return new Vector(x, y);
 		}
 	}
 }

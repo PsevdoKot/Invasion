@@ -25,7 +25,7 @@ namespace Invasion.Views
 
         private Timer uiTimer;
 
-        private int leftBorder, topBorder, bgWidth, bgHeight;
+        private int leftBattleGroundBorder, topBattleGroundBorder, battleGroundWidth, battleGroundHeight;
 
         private Matrix initialMatrix;
 
@@ -55,11 +55,11 @@ namespace Invasion.Views
 
         private void GetBattleGroundBounds()
         {
-            leftBorder = (int)(ClientSize.Width * 0.2) + 3;
-            topBorder = (int)(ClientSize.Height * 0.1) - 3;
+            leftBattleGroundBorder = (int)(ClientSize.Width * 0.2) + 3;
+            topBattleGroundBorder = (int)(ClientSize.Height * 0.1) - 3;
 
-            bgWidth = ClientRectangle.Width - leftBorder - 0;
-            bgHeight = ClientRectangle.Height - topBorder - 65;
+            battleGroundWidth = ClientRectangle.Width - leftBattleGroundBorder - 0;
+            battleGroundHeight = ClientRectangle.Height - topBattleGroundBorder - 65;
         }
 
         public void Configure(Game game)
@@ -67,7 +67,7 @@ namespace Invasion.Views
             if (this.game == null)
                 this.game = game;
 
-            game.BattleGround = new Rectangle(0, 0, bgWidth, bgHeight);
+            game.BattleGround = new Rectangle(0, 0, battleGroundWidth, battleGroundHeight);
             level = game.CurrentLevel;
 
             mainTimer.Start();
@@ -115,7 +115,7 @@ namespace Invasion.Views
                     infoTable.Invalidate();
                     break;
                 case Keys.F:
-                    level.Cannon.ChooseProjectile(level.Cannon.SelectedProj + 1);
+                    level.Cannon.ChooseProjectile(level.Cannon.SelectedProjectile + 1);
                     UpdateProjectileInfo();
                     break;
                 case Keys.R:
@@ -129,7 +129,7 @@ namespace Invasion.Views
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    level.Cannon.MachineGun.RotateDirectionTo(new Vector(e.Location.Add(-leftBorder, -topBorder)));
+                    level.Cannon.MachineGun.RotateDirectionTo(new Vector(e.Location.Add(-leftBattleGroundBorder, -topBattleGroundBorder)));
                     game.ShootByMachineGun();
                     break;
                 case MouseButtons.Right:
@@ -137,7 +137,7 @@ namespace Invasion.Views
                     UpdateProjectileInfo();
                     break;
                 case MouseButtons.Middle:
-                    game.SelectTargetPosition(e.Location.Add(-leftBorder, -topBorder));
+                    game.SelectTargetPosition(e.Location.Add(-leftBattleGroundBorder, -topBattleGroundBorder));
                     break;
             }
         }
@@ -148,19 +148,19 @@ namespace Invasion.Views
 
         private void uiTimer_Tick(object sender, EventArgs e)
         {
-            game.UpdateTime();
+            game.UpdateTimer();
             scoreInfo.Text = $"Score: {game.PlayerScore}";
             timeInfo.Text = game.GetTime();
         }
 
         public void UpdateProjectileInfo()
         {
-            cannonBallInfo.Text = game.GetProjInfo(Projectile.CannonBall);
-            springyBallInfo.Text = game.GetProjInfo(Projectile.SpringyBall);
-            laserInfo.Text = game.GetProjInfo(Projectile.Laser);
-            missleInfo.Text = game.GetProjInfo(Projectile.Missle);
+            cannonBallInfo.Text = game.GetProjectileCount(Projectile.CannonBall);
+            springyBallInfo.Text = game.GetProjectileCount(Projectile.SpringyBall);
+            laserInfo.Text = game.GetProjectileCount(Projectile.Laser);
+            missleInfo.Text = game.GetProjectileCount(Projectile.Missle);
 
-            RepaintInfo(level.Cannon.SelectedProj);
+            RepaintInfo(level.Cannon.SelectedProjectile);
         }
 
         private void RepaintInfo(Projectile projType)
@@ -170,7 +170,7 @@ namespace Invasion.Views
             missleInfo.ForeColor = Color.Black;
             cannonBallInfo.ForeColor = Color.Black;
 
-            switch (level.Cannon.SelectedProj)
+            switch (level.Cannon.SelectedProjectile)
             {
                 case Projectile.CannonBall:
                     cannonBallInfo.ForeColor = Color.Crimson;
@@ -197,10 +197,10 @@ namespace Invasion.Views
 
         private void Table_OnPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
-            var image = new Bitmap(bgWidth, bgHeight);
+            var image = new Bitmap(battleGroundWidth, battleGroundHeight);
             var graph = Graphics.FromImage(image);
             DrawTo(graph);
-            e.Graphics.DrawImageUnscaled(image, leftBorder, topBorder);
+            e.Graphics.DrawImageUnscaled(image, leftBattleGroundBorder, topBattleGroundBorder);
         }
 
         private void DrawTo(Graphics g)

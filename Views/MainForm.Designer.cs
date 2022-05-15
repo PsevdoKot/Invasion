@@ -29,6 +29,7 @@ namespace Invasion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuControl = new Invasion.Views.MenuControl();
             this.levelSelectingControl = new Invasion.Views.LevelSelectingControl();
             this.battleControl = new Invasion.Views.BattleControl();
@@ -88,6 +89,7 @@ namespace Invasion
             this.Controls.Add(this.finishedControl);
             this.Controls.Add(this.defeatControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Invasion";

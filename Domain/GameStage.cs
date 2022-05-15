@@ -10,8 +10,9 @@ namespace Invasion.Domain
     {
         Menu = 0,
         LevelSelecting = 1,
-        Battle = 2,
-        Finished = 3,
-        Defeat = 4
+        Tutorial = 2,
+        Battle = 3,
+        Finished = 4,
+        Defeat = 5
     }
 }

@@ -14,24 +14,22 @@ namespace Invasion.Domain.Projectiles
         public Projectile Type { get; } = Projectile.Missle;
 
         public Vector Position { get; set; }
-        public Size Size { get; }
+        public Size Size { get; } = new Size(30, 10);
         public Rectangle Collision => new Rectangle(Position.AsPoint().Add(-Size.Width / 2, -Size.Height / 2), Size);
 
         public Vector MoveVector { get; set; }
         public double Direction { get; set; }
-        public double MoveSpeed { get; set; }
+        public double MoveSpeed { get; set; } = 50;
         public int ShotPower { get; set; }
 
         private Vector targetPosition;
 
         public Missle(Vector position, Vector targetPosition, double direction, int shotPower)
         {
-            Position = position;
+            Position = position.NormalizeForBounds(new Rectangle(0, 0, 1700, 800));
             this.targetPosition = targetPosition;
-            Size = new Size(30, 10);
-            ShotPower = shotPower;
+            ShotPower = shotPower < 20 ? 20 : shotPower > 100 ? 100 : shotPower;
             Direction = direction;
-            MoveSpeed = 50;
             MoveVector = Vector.Build(MoveSpeed, Direction * Math.PI / 180);
         }
 
@@ -40,8 +38,8 @@ namespace Invasion.Domain.Projectiles
             if (targetPosition != null)
             {
                 Direction += (targetPosition - Position).Angle - Direction * Math.PI / 180 > 0
-                    ? 3
-                    : -3;
+                    ? 5
+                    : -5;
                 MoveVector = Vector.Build(MoveSpeed, Direction * Math.PI / 180);
             }
             Position += MoveVector * ShotPower / 50;

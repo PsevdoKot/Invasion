@@ -183,6 +183,16 @@ namespace Invasion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reflectiveWall {
+            get {
+                object obj = ResourceManager.GetObject("reflectiveWall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap solidWall {
             get {
                 object obj = ResourceManager.GetObject("solidWall", resourceCulture);

@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Invasion.Domain.Walls;
 
 namespace Invasion.Domain
 {
@@ -53,6 +54,11 @@ namespace Invasion.Domain
             ChangeStage(GameStage.Menu);
         }
 
+        public void ToTutorial()
+        {
+            ChangeStage(GameStage.Tutorial);
+        }
+
         public void ToDefeat()
         {
             PlayerScore = playerScoreAtLevelBeginning;
@@ -77,7 +83,7 @@ namespace Invasion.Domain
         /////
         /////
 
-        public void UpdateTime()
+        public void UpdateTimer()
         {
             LevelTime += 1;
             if (LevelTime % CurrentLevel.DroneAppearanceTime == 0)
@@ -97,9 +103,9 @@ namespace Invasion.Domain
                     : $"0{minutes}:0{seconds}";
         }
 
-        public string GetProjInfo(Projectile projType)
+        public string GetProjectileCount(Projectile projType)
         {
-            return CurrentLevel.Cannon.projInfo[projType].ToString();
+            return CurrentLevel.Cannon.Ammunition[projType].ToString();
         }
 
         /////
@@ -110,7 +116,7 @@ namespace Invasion.Domain
         {
             if (CurrentLevel.Cannon.Shoot())
             {
-                switch (CurrentLevel.Cannon.SelectedProj)
+                switch (CurrentLevel.Cannon.SelectedProjectile)
                 {
                     case Projectile.CannonBall:
                         CurrentLevel.Projectiles.Add(new CannonBall(CalculateShotPosition(),
@@ -199,89 +205,101 @@ namespace Invasion.Domain
 
         private void CheckCollisions()
         {
+            CheckDronesCollision();
+            CheckProjectileCollision();
+        }
+
+        private void CheckDronesCollision()
+        {
             foreach (var drone in CurrentLevel.Drones)
-            {
                 if (drone.Collision.IntersectsWith(CurrentLevel.Cannon.Collision))
-                {
                     ToDefeat();
-                }
-            }
+        }
 
-            bool flag;
-            for (var i = 0; i < CurrentLevel.Projectiles.Count; i++)
+        private void CheckProjectileCollision()
+        {
+            for (var i = 0; i < CurrentLevel.Projectiles.Count && !CurrentLevel.IsCompleted; i++)
             {
-                flag = false;
-                var proj = CurrentLevel.Projectiles[i];
+                var projectile = CurrentLevel.Projectiles[i];
+                if (projectile.Type == Projectile.Bullet && CheckMachineGunProjectile(projectile))
+                    i--;
+                else if (CheckCannonProjectile(projectile))
+                    i--;
+            }
+        }
 
-                if (proj.Type == Projectile.Bullet)
+        private bool CheckMachineGunProjectile(IProjectile projectile)
+        {
+            for (var j = 0; j < CurrentLevel.Drones.Count; j++)
+            {
+                var drone = CurrentLevel.Drones[j];
+                if (projectile.Collision.IntersectsWith(drone.Collision))
                 {
-                    for (var j = 0; j < CurrentLevel.Drones.Count; j++)
-                    {
-                        var drone = CurrentLevel.Drones[j];
-                        if (proj.Collision.IntersectsWith(drone.Collision))
-                        {
-                            CurrentLevel.Drones.Remove(drone);
-                            j--;
+                    CurrentLevel.Drones.Remove(drone);
+                    j--;
 
-                            CurrentLevel.Projectiles.Remove(proj);
-                            i--;
-                            flag = true;
-                            break;
-                        }
-                    }
-                    if (flag) break;
-                    for (var j = 0; j < CurrentLevel.Walls.Count; j++)
-                    {
-                        if (proj.Collision.IntersectsWith(CurrentLevel.Walls[j].Collision))
-                        {
-                            CurrentLevel.Projectiles.Remove(proj);
-                            i--;
-                            break;
-                        }
-                    }
-                }
-
-                else
-                {
-                    if (proj.Collision.IntersectsWith(CurrentLevel.ControlCenter.Collision))
-                    {
-                        CurrentLevel.ControlCenter.IsCrashed = true;
-                        PlayerScore += 3;
-                        return;
-                    }
-                    for (var j = 0; j < CurrentLevel.SupplyCenters.Count; j++)
-                    {
-                        var sc = CurrentLevel.SupplyCenters[j];
-                        if (proj.Collision.IntersectsWith(sc.Collision))
-                        {
-                            CurrentLevel.SupplyCenters.Remove(sc);
-                            j--;
-                            PlayerScore++;
-
-                            CurrentLevel.Projectiles.Remove(proj);
-                            i--;
-                            flag = true;
-                            break;
-                        }
-                    }
-                    if (flag) break;
-                    for (var j = 0; j < CurrentLevel.Walls.Count; j++)
-                    {
-                        var wall = CurrentLevel.Walls[j];
-                        if (proj.Collision.IntersectsWith(wall.Collision))
-                        {
-                            if (wall.Type == Wall.FragileWall)
-                            {
-                                CurrentLevel.Walls.Remove(wall);
-                                j--;
-                            }
-                            CurrentLevel.Projectiles.Remove(proj);
-                            i--;
-                            break;
-                        }
-                    }
+                    CurrentLevel.Projectiles.Remove(projectile);
+                    return true;
                 }
             }
+            for (var j = 0; j < CurrentLevel.Walls.Count; j++)
+            {
+                var wall = CurrentLevel.Walls[j];
+                if (projectile.Collision.IntersectsWith(wall.Collision))
+                {
+                    CurrentLevel.Projectiles.Remove(projectile);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool CheckCannonProjectile(IProjectile projectile)
+        {
+            if (projectile.Collision.IntersectsWith(CurrentLevel.ControlCenter.Collision))
+            {
+                CurrentLevel.ControlCenter.IsCrashed = true;
+                PlayerScore += 3;
+                return true;
+            }
+            for (var j = 0; j < CurrentLevel.SupplyCenters.Count; j++)
+            {
+                var supplyCenter = CurrentLevel.SupplyCenters[j];
+                if (projectile.Collision.IntersectsWith(supplyCenter.Collision))
+                {
+                    CurrentLevel.SupplyCenters.Remove(supplyCenter);
+                    j--;
+                    PlayerScore++;
+
+                    CurrentLevel.Projectiles.Remove(projectile);
+                    return true;
+                }
+            }
+            for (var j = 0; j < CurrentLevel.Walls.Count; j++)
+            {
+                var wall = CurrentLevel.Walls[j];
+                if (projectile.Collision.IntersectsWith(wall.Collision))
+                {
+                    if (projectile.Type == Projectile.SpringyBall && wall.Type == Wall.SolidWall
+                        || projectile.Type == Projectile.Laser && wall.Type == Wall.ReflectiveWall)
+                    {
+                        projectile.Direction = 2 * (180 - wall.InclinationAngle) - projectile.Direction;
+                        projectile.MoveVector = Vector.Build(projectile.MoveSpeed, projectile.Direction * Math.PI / 180);
+                    }
+                    else
+                    {
+                        if ((projectile.Type == Projectile.CannonBall || projectile.Type == Projectile.Missle) && wall.Type == Wall.FragileWall)
+                        {
+                            CurrentLevel.Walls.Remove(wall);
+                            j--;
+                        }
+                        CurrentLevel.Projectiles.Remove(projectile);
+                        return true;
+                    }
+                    break;
+                }
+            }
+            return false;
         }
 
         private void SpawnDrone()

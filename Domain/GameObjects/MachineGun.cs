@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Invasion.Domain
+namespace Invasion.Domain.GameObjects
 {
     public class MachineGun
     {
@@ -17,15 +17,15 @@ namespace Invasion.Domain
         public Vector Position { get; set; }
 
         public double Direction;
-        public bool IsFliped { get => Direction < -90 || Direction > 90; }
+        public bool IsFliped => Direction < -90 || Direction > 90;
 
         private const int shotSpeed = 50;
         private int timeBetweenShots;
 
         public MachineGun(Vector position)
         {
-            timeBetweenShots = shotSpeed;
             Position = position;
+            timeBetweenShots = shotSpeed;
         }
 
         public void UpdateReloadTime()
@@ -40,7 +40,7 @@ namespace Invasion.Domain
 
         public bool Shoot()
         {
-            if (timeBetweenShots > shotSpeed)
+            if (timeBetweenShots >= shotSpeed)
             {
                 timeBetweenShots = 0;
                 return true;
