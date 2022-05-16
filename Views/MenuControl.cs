@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Invasion.Domain;
+using System;
 using System.Windows.Forms;
-using Invasion.Domain;
 
 namespace Invasion.Views
 {
@@ -34,7 +26,7 @@ namespace Invasion.Views
 
             startButton.Click += StartButton_Click;
             exitButton.Click += ExitButton_Click;
-            
+
             //musicVolume.ValueChanged += GameVolume_ValueChanged;
             //musicVolume.Value = 50
         }

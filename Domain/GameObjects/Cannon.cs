@@ -1,13 +1,7 @@
-﻿using Invasion.Domain;
-using Invasion.Domain.GameObjects;
-using Invasion.Domain.Projectiles;
+﻿using Invasion.Domain.Projectiles;
 using Invasion.Properties;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Invasion.Domain.GameObjects
 {
@@ -22,7 +16,7 @@ namespace Invasion.Domain.GameObjects
 
         private const double dAngle = 5;
         public double Direction { get; private set; } = 0;
-        public bool IsFliped => Direction > -90; 
+        public bool IsFliped => Direction > -90;
 
         private const int dPower = 5;
         public int ShotPower { get; private set; } = 50;
@@ -51,7 +45,7 @@ namespace Invasion.Domain.GameObjects
         public void RotateDirection(Turn dir)
         {
             if (dir == Turn.Left && Direction < 20)
-                Direction -= dAngle * (int)dir; 
+                Direction -= dAngle * (int)dir;
             else if (dir == Turn.Right && Direction > -200)
                 Direction -= dAngle * (int)dir;
         }

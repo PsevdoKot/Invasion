@@ -1,12 +1,5 @@
-﻿using Invasion.Domain;
-using Invasion.Domain.GameObjects;
-using Invasion.Properties;
-using System;
-using System.Collections.Generic;
+﻿using Invasion.Properties;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Invasion.Domain.GameObjects
 {

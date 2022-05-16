@@ -1,10 +1,5 @@
 ﻿using Invasion.Properties;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Invasion.Domain.Walls
 {
@@ -17,7 +12,7 @@ namespace Invasion.Domain.Walls
         public Size Size { get; }
         public double InclinationAngle { get; }
 
-        public Rectangle Collision { get; } 
+        public Rectangle Collision { get; }
 
         public ReflectiveWall((Vector, Size, double) wallData)
         {

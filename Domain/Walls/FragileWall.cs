@@ -1,10 +1,5 @@
 ﻿using Invasion.Properties;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Invasion.Domain.Walls
 {
@@ -19,7 +14,7 @@ namespace Invasion.Domain.Walls
 
         public Rectangle Collision { get; }
 
-        public FragileWall((Vector, Size , double) wallData)
+        public FragileWall((Vector, Size, double) wallData)
         {
             Position = wallData.Item1.NormalizeForBounds(new Rectangle(0, 0, 1700, 800));
             Size = wallData.Item2;

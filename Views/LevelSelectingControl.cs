@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using Invasion.Domain;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Invasion.Domain;
 
 namespace Invasion.Views
 {
@@ -37,7 +31,7 @@ namespace Invasion.Views
             menuButton.Click += MenuButton_Click;
         }
 
-        private void LevelButton_Click(object sender, EventArgs e) 
+        private void LevelButton_Click(object sender, EventArgs e)
             => game.LoadLevel(((Button)sender).Text.ElementAt(6) - 48);
 
         private void MenuButton_Click(object sender, EventArgs e)

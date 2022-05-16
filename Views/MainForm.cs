@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Invasion.Domain;
 using System.Windows.Forms;
-using Invasion.Domain;
-using Invasion.Domain.GameObjects;
-using Invasion.Views;
 
 namespace Invasion
 {
@@ -39,7 +29,7 @@ namespace Invasion
             get
             {
                 CreateParams handleParam = base.CreateParams;
-                handleParam.ExStyle |= 0x02000000;       
+                handleParam.ExStyle |= 0x02000000;
                 return handleParam;
             }
         }

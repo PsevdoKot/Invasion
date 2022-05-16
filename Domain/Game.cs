@@ -1,14 +1,8 @@
-﻿using Invasion.Domain;
-using Invasion.Domain.GameObjects;
+﻿using Invasion.Domain.GameObjects;
 using Invasion.Domain.Projectiles;
-using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Invasion.Domain.Walls;
+using System;
+using System.Drawing;
 
 namespace Invasion.Domain
 {
@@ -22,7 +16,7 @@ namespace Invasion.Domain
         public Rectangle BattleGround { get; set; }
 
         public Level CurrentLevel { get; private set; }
-        public int CurrentLevelNumber { get; private set; }        
+        public int CurrentLevelNumber { get; private set; }
         public int PlayerScore { get; private set; }
         private int playerScoreAtLevelBeginning;
 

@@ -1,12 +1,6 @@
-﻿using Invasion.Domain;
-using Invasion.Domain.GameObjects;
-using Invasion.Properties;
+﻿using Invasion.Properties;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Invasion.Domain.GameObjects
 {
@@ -34,7 +28,7 @@ namespace Invasion.Domain.GameObjects
         }
 
         public void RotateDirectionTo(Vector targetPos)
-        {            
+        {
             Direction = 180 * (targetPos - Position).Angle / Math.PI;
         }
 
