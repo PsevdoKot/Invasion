@@ -36,7 +36,7 @@ namespace Invasion.Views
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            game.ToLevelSelecting();
+            game.ToMenu();
         }
 
         private void GameProcessButton_Click(object sender, EventArgs e)

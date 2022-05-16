@@ -9,13 +9,6 @@ namespace Invasion
 
         public MainForm()
         {
-            //SetStyle(ControlStyles.DoubleBuffer, true);
-            //SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            //SetStyle(ControlStyles.UserPaint, true);
-            //SetStyle(ControlStyles.SupportsTransparentBackColor, false);
-            //SetStyle(ControlStyles.Opaque, false);
-            //SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-
             InitializeComponent();
 
             game = new Game();
