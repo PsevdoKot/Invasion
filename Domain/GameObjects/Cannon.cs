@@ -13,8 +13,8 @@ namespace Invasion.Domain.GameObjects
 {
     public class Cannon : IGameObject
     {
-        public Image Image { get; } = Resources.turret1;
-        public Image Image2 { get; } = Resources.turret2;
+        public Image Image { get; } = Resources.cannon1;
+        public Image Image2 { get; } = Resources.cannon2;
 
         public Vector Position { get; set; }
         public Size Size { get; } = new Size(120, 65);

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,8 @@ namespace Invasion.Views
 {
     public partial class MenuControl : UserControl
     {
+        private WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
+
         private Game game;
 
         public MenuControl()
@@ -27,22 +30,30 @@ namespace Invasion.Views
 
             this.game = game;
 
-            startButton.Click += SelectButton_Click;
+            tutorialButton.Click += TutorialButton_Click;
+
+            startButton.Click += StartButton_Click;
             exitButton.Click += ExitButton_Click;
-            musicVolume.Scroll += MusicVolume_Scroll;
-            soundVolume.Scroll += SoundVolume_Scroll;
+            
+            //musicVolume.ValueChanged += GameVolume_ValueChanged;
+            //musicVolume.Value = 50
         }
-        
-        private void SelectButton_Click(object sender, EventArgs e)
+
+        private void StartButton_Click(object sender, EventArgs e)
         {
-            game.ToSelectLevel();
+            game.ToLevelSelecting();
         }
-        
+
+        private void TutorialButton_Click(object sender, EventArgs e)
+        {
+            game.ToTutorial();
+        }
+
         private void ExitButton_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show(
-                "Вы уверенны, что хотите закрыть приложение?",
-                "Сообщение",
+                "Are you sure you want to close the app?",
+                "Massage",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1,
@@ -50,15 +61,10 @@ namespace Invasion.Views
             if (result == DialogResult.Yes)
                 Application.Exit();
         }
-        
-        private void MusicVolume_Scroll(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
-        private void SoundVolume_Scroll(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        //private void MusicVolume_ValueChanged(object sender, EventArgs e)
+        //{
+        //    WMP.settings.volume = musicVolume.Value;
+        //}
     }
 }

@@ -43,7 +43,7 @@ namespace Invasion.Domain
             StageChanged?.Invoke(stage);
         }
 
-        public void ToSelectLevel()
+        public void ToLevelSelecting()
         {
             ChangeStage(GameStage.LevelSelecting);
         }
@@ -70,7 +70,7 @@ namespace Invasion.Domain
             playerScoreAtLevelBeginning = PlayerScore;
             LevelTime = 0;
             CurrentLevelNumber = levelNumber;
-            CurrentLevel = /*LevelMaker.Levels[CurrentLevelNumber] ?? */LevelMaker.LoadLevelFromFolder(Folders.Levels, CurrentLevelNumber);
+            CurrentLevel = LevelMaker.LoadLevelFromFolder(Folders.Levels, levelNumber);
             ChangeStage(GameStage.Battle);
         }
 
@@ -192,12 +192,13 @@ namespace Invasion.Domain
 
             for (var i = 0; i < CurrentLevel.Projectiles.Count; i++)
             {
-                var proj = CurrentLevel.Projectiles[i];
-                if (proj.Collision.IntersectsWith(BattleGround))
-                    proj.Move();
+                var projectile = CurrentLevel.Projectiles[i];
+                var projectileCollision = projectile.Collision;
+                if (projectileCollision.IntersectsWith(BattleGround) || projectileCollision.Y < -200)
+                    projectile.Move();
                 else
                 {
-                    CurrentLevel.Projectiles.Remove(proj);
+                    CurrentLevel.Projectiles.Remove(projectile);
                     i--;
                 }
             }
@@ -221,8 +222,11 @@ namespace Invasion.Domain
             for (var i = 0; i < CurrentLevel.Projectiles.Count && !CurrentLevel.IsCompleted; i++)
             {
                 var projectile = CurrentLevel.Projectiles[i];
-                if (projectile.Type == Projectile.Bullet && CheckMachineGunProjectile(projectile))
-                    i--;
+                if (projectile.Type == Projectile.Bullet)
+                {
+                    if (CheckMachineGunProjectile(projectile))
+                        i--;
+                }
                 else if (CheckCannonProjectile(projectile))
                     i--;
             }
@@ -242,15 +246,15 @@ namespace Invasion.Domain
                     return true;
                 }
             }
-            for (var j = 0; j < CurrentLevel.Walls.Count; j++)
-            {
-                var wall = CurrentLevel.Walls[j];
-                if (projectile.Collision.IntersectsWith(wall.Collision))
-                {
-                    CurrentLevel.Projectiles.Remove(projectile);
-                    return true;
-                }
-            }
+            //for (var j = 0; j < CurrentLevel.Walls.Count; j++)
+            //{
+            //    var wall = CurrentLevel.Walls[j];
+            //    if (projectile.Collision.IntersectsWith(wall.Collision))
+            //    {
+            //        CurrentLevel.Projectiles.Remove(projectile);
+            //        return true;
+            //    }
+            //}
             return false;
         }
 
@@ -280,7 +284,7 @@ namespace Invasion.Domain
                 var wall = CurrentLevel.Walls[j];
                 if (projectile.Collision.IntersectsWith(wall.Collision))
                 {
-                    if (projectile.Type == Projectile.SpringyBall && wall.Type == Wall.SolidWall
+                    if (projectile.Type == Projectile.SpringyBall && (wall.Type == Wall.SolidWall || wall.Type == Wall.FragileWall)
                         || projectile.Type == Projectile.Laser && wall.Type == Wall.ReflectiveWall)
                     {
                         projectile.Direction = 2 * (180 - wall.InclinationAngle) - projectile.Direction;

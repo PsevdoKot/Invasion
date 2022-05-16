@@ -29,13 +29,8 @@ namespace Invasion.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.mainTable = new System.Windows.Forms.TableLayoutPanel();
+            this.infoTable = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -44,230 +39,262 @@ namespace Invasion.Views
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.buttonTable = new System.Windows.Forms.TableLayoutPanel();
+            this.wallsButton = new System.Windows.Forms.Button();
+            this.AmmunitionButton = new System.Windows.Forms.Button();
+            this.controlButton = new System.Windows.Forms.Button();
+            this.gameProcessButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
+            this.mainTable.SuspendLayout();
+            this.infoTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.buttonTable.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // mainTable
             // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1150, 500);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.mainTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.mainTable.ColumnCount = 2;
+            this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.mainTable.Controls.Add(this.infoTable, 0, 0);
+            this.mainTable.Controls.Add(this.buttonTable, 0, 0);
+            this.mainTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainTable.Location = new System.Drawing.Point(0, 0);
+            this.mainTable.Name = "mainTable";
+            this.mainTable.RowCount = 1;
+            this.mainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.mainTable.Size = new System.Drawing.Size(1600, 881);
+            this.mainTable.TabIndex = 0;
             // 
-            // tableLayoutPanel2
+            // infoTable
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox3, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox4, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 1, 4);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(237, 6);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 6;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(907, 488);
-            this.tableLayoutPanel2.TabIndex = 3;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.button4, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.button3, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.button2, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 4;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(222, 488);
-            this.tableLayoutPanel3.TabIndex = 2;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(56, 403);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(109, 44);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Walls";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(34, 279);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(154, 50);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Ammunition";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(52, 153);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 60);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Game process";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(45, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 46);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "About";
-            this.button1.UseVisualStyleBackColor = true;
+            this.infoTable.ColumnCount = 2;
+            this.infoTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.infoTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.infoTable.Controls.Add(this.pictureBox1, 0, 1);
+            this.infoTable.Controls.Add(this.pictureBox2, 0, 2);
+            this.infoTable.Controls.Add(this.pictureBox3, 0, 3);
+            this.infoTable.Controls.Add(this.pictureBox4, 0, 4);
+            this.infoTable.Controls.Add(this.label1, 1, 1);
+            this.infoTable.Controls.Add(this.label2, 1, 2);
+            this.infoTable.Controls.Add(this.label3, 1, 3);
+            this.infoTable.Controls.Add(this.label4, 1, 4);
+            this.infoTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.infoTable.Location = new System.Drawing.Point(327, 6);
+            this.infoTable.Name = "infoTable";
+            this.infoTable.RowCount = 6;
+            this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.infoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.infoTable.Size = new System.Drawing.Size(1267, 869);
+            this.infoTable.TabIndex = 3;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Location = new System.Drawing.Point(86, 71);
+            this.pictureBox1.Location = new System.Drawing.Point(140, 147);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Location = new System.Drawing.Point(86, 168);
+            this.pictureBox2.Location = new System.Drawing.Point(140, 320);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox3.Location = new System.Drawing.Point(86, 265);
+            this.pictureBox3.Location = new System.Drawing.Point(140, 493);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox4.Location = new System.Drawing.Point(86, 362);
+            this.pictureBox4.Location = new System.Drawing.Point(140, 666);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(555, 86);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Cooper Black", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(383, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 21);
+            this.label1.Size = new System.Drawing.Size(881, 173);
             this.label1.TabIndex = 4;
             this.label1.Text = "label1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Visible = false;
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(555, 183);
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Cooper Black", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(383, 259);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 21);
+            this.label2.Size = new System.Drawing.Size(881, 173);
             this.label2.TabIndex = 5;
             this.label2.Text = "label2";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Visible = false;
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(555, 280);
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Cooper Black", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(383, 432);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 21);
+            this.label3.Size = new System.Drawing.Size(881, 173);
             this.label3.TabIndex = 6;
             this.label3.Text = "label3";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Visible = false;
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(555, 377);
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Cooper Black", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(383, 605);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 21);
+            this.label4.Size = new System.Drawing.Size(881, 173);
             this.label4.TabIndex = 7;
             this.label4.Text = "label4";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Visible = false;
+            // 
+            // buttonTable
+            // 
+            this.buttonTable.ColumnCount = 1;
+            this.buttonTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.buttonTable.Controls.Add(this.wallsButton, 0, 4);
+            this.buttonTable.Controls.Add(this.AmmunitionButton, 0, 3);
+            this.buttonTable.Controls.Add(this.controlButton, 0, 2);
+            this.buttonTable.Controls.Add(this.gameProcessButton, 0, 1);
+            this.buttonTable.Controls.Add(this.backButton, 0, 0);
+            this.buttonTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonTable.Location = new System.Drawing.Point(6, 6);
+            this.buttonTable.Name = "buttonTable";
+            this.buttonTable.RowCount = 5;
+            this.buttonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.buttonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.buttonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.buttonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.buttonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.buttonTable.Size = new System.Drawing.Size(312, 869);
+            this.buttonTable.TabIndex = 2;
+            // 
+            // wallsButton
+            // 
+            this.wallsButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.wallsButton.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wallsButton.Location = new System.Drawing.Point(89, 756);
+            this.wallsButton.Name = "wallsButton";
+            this.wallsButton.Size = new System.Drawing.Size(134, 67);
+            this.wallsButton.TabIndex = 3;
+            this.wallsButton.Text = "Walls";
+            this.wallsButton.UseVisualStyleBackColor = true;
+            // 
+            // AmmunitionButton
+            // 
+            this.AmmunitionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.AmmunitionButton.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AmmunitionButton.Location = new System.Drawing.Point(49, 597);
+            this.AmmunitionButton.Name = "AmmunitionButton";
+            this.AmmunitionButton.Size = new System.Drawing.Size(214, 71);
+            this.AmmunitionButton.TabIndex = 2;
+            this.AmmunitionButton.Text = "Ammunition";
+            this.AmmunitionButton.UseVisualStyleBackColor = true;
+            // 
+            // controlButton
+            // 
+            this.controlButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.controlButton.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.controlButton.Location = new System.Drawing.Point(83, 443);
+            this.controlButton.Name = "controlButton";
+            this.controlButton.Size = new System.Drawing.Size(145, 67);
+            this.controlButton.TabIndex = 1;
+            this.controlButton.Text = "Control";
+            this.controlButton.UseVisualStyleBackColor = true;
+            // 
+            // gameProcessButton
+            // 
+            this.gameProcessButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gameProcessButton.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameProcessButton.Location = new System.Drawing.Point(77, 279);
+            this.gameProcessButton.Name = "gameProcessButton";
+            this.gameProcessButton.Size = new System.Drawing.Size(157, 84);
+            this.gameProcessButton.TabIndex = 0;
+            this.gameProcessButton.Text = "Game process";
+            this.gameProcessButton.UseVisualStyleBackColor = true;
+            // 
+            // backButton
+            // 
+            this.backButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.backButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.backButton.FlatAppearance.BorderSize = 10;
+            this.backButton.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Location = new System.Drawing.Point(94, 87);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(124, 68);
+            this.backButton.TabIndex = 4;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
             // 
             // TutorialControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.mainTable);
             this.Name = "TutorialControl";
-            this.Size = new System.Drawing.Size(1150, 500);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(1600, 881);
+            this.mainTable.ResumeLayout(false);
+            this.infoTable.ResumeLayout(false);
+            this.infoTable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.buttonTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel mainTable;
+        private System.Windows.Forms.TableLayoutPanel infoTable;
+        private System.Windows.Forms.TableLayoutPanel buttonTable;
+        private System.Windows.Forms.Button wallsButton;
+        private System.Windows.Forms.Button AmmunitionButton;
+        private System.Windows.Forms.Button controlButton;
+        private System.Windows.Forms.Button gameProcessButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -276,5 +303,6 @@ namespace Invasion.Views
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button backButton;
     }
 }

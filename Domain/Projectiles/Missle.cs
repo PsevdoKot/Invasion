@@ -38,8 +38,8 @@ namespace Invasion.Domain.Projectiles
             if (targetPosition != null)
             {
                 Direction += (targetPosition - Position).Angle - Direction * Math.PI / 180 > 0
-                    ? 5
-                    : -5;
+                    ? 7
+                    : -7;
                 MoveVector = Vector.Build(MoveSpeed, Direction * Math.PI / 180);
             }
             Position += MoveVector * ShotPower / 50;

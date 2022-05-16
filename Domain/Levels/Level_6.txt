@@ -1,18 +1,26 @@
 ﻿cannon position
-200 680
+700 680
 |
 ammunition
-5 4 3 2
+7 7 0 1
 |
 control center position
-1200 100
+150 300
 |
 supply centers positions
-150 200
-700 350
+400 600
+1150 150
+1100 600
 |
 walls
-
+500 600;300 50;90;solid
+900 600;300 50;90;solid
+1100 700;300 50;0;solid
+300 700;300 50;0;solid
+1150 200;200 50;0;solid
+1000 150;200 50;90;fragile
+300 150;200 50;90;solid
+50 450;200 50;90;fragile
 |
 droneAppearanceTime
-7
+5

@@ -35,5 +35,34 @@ namespace Invasion.Domain
 			Drones = new List<Drone>();
 			Projectiles = new List<IProjectile>();
 		}
+
+		//public Level(Level other)
+		//{
+		//	Cannon = new Cannon(other.Cannon.Position, other.Cannon.Ammunition.Select(pair => pair.Value).ToArray());
+		//	ControlCenter = new ControlCenter(other.ControlCenter.Position);
+		//	SupplyCenters = other.SupplyCenters
+		//		.Select(sc => sc.Position)
+		//		.Select(pos => new SupplyCenter(pos))
+		//		.ToList();
+		//	Walls = other.Walls
+		//		.Select(wall => ((wall.Position, wall.Size, wall.InclinationAngle), wall.Type))
+		//		.Select(data =>
+		//		{
+		//			switch (data.Item2)
+		//			{
+		//				default:
+		//				case Wall.SolidWall:
+		//					return new SolidWall(data.Item1);
+		//				case Wall.FragileWall:
+		//					return new FragileWall(data.Item1);
+		//				case Wall.ReflectiveWall:
+		//					return (IWall)new ReflectiveWall(data.Item1);
+		//			}
+		//		})
+		//		.ToList();
+		//	DroneAppearanceTime = other.DroneAppearanceTime;
+		//	Drones = new List<Drone>();
+		//	Projectiles = new List<IProjectile>();
+		//}
 	}
 }

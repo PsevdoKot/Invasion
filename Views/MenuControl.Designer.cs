@@ -40,12 +40,9 @@ namespace Invasion.Views
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.mainTable = new System.Windows.Forms.TableLayoutPanel();
             this.additionalTable = new System.Windows.Forms.TableLayoutPanel();
-            this.soundVolumeText = new System.Windows.Forms.Label();
-            this.musicVolumeText = new System.Windows.Forms.Label();
-            this.soundVolume = new System.Windows.Forms.TrackBar();
             this.exitButton = new System.Windows.Forms.Button();
-            this.musicVolume = new System.Windows.Forms.TrackBar();
             this.startButton = new System.Windows.Forms.Button();
+            this.tutorialButton = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.Label();
             this.table.SuspendLayout();
             this.pictureTable1.SuspendLayout();
@@ -56,8 +53,6 @@ namespace Invasion.Views
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.mainTable.SuspendLayout();
             this.additionalTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.soundVolume)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.musicVolume)).BeginInit();
             this.SuspendLayout();
             // 
             // table
@@ -169,78 +164,31 @@ namespace Invasion.Views
             // 
             this.additionalTable.ColumnCount = 1;
             this.additionalTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.additionalTable.Controls.Add(this.soundVolumeText, 0, 3);
-            this.additionalTable.Controls.Add(this.musicVolumeText, 0, 1);
-            this.additionalTable.Controls.Add(this.soundVolume, 0, 2);
-            this.additionalTable.Controls.Add(this.exitButton, 0, 5);
-            this.additionalTable.Controls.Add(this.musicVolume, 0, 4);
+            this.additionalTable.Controls.Add(this.exitButton, 0, 4);
             this.additionalTable.Controls.Add(this.startButton, 0, 0);
+            this.additionalTable.Controls.Add(this.tutorialButton, 0, 1);
             this.additionalTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.additionalTable.Location = new System.Drawing.Point(6, 159);
             this.additionalTable.Name = "additionalTable";
-            this.additionalTable.RowCount = 6;
+            this.additionalTable.RowCount = 5;
             this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.additionalTable.Size = new System.Drawing.Size(782, 729);
             this.additionalTable.TabIndex = 9;
-            // 
-            // soundVolumeText
-            // 
-            this.soundVolumeText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.soundVolumeText.AutoSize = true;
-            this.soundVolumeText.Font = new System.Drawing.Font("Cooper Black", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soundVolumeText.Location = new System.Drawing.Point(285, 401);
-            this.soundVolumeText.Name = "soundVolumeText";
-            this.soundVolumeText.Size = new System.Drawing.Size(212, 34);
-            this.soundVolumeText.TabIndex = 1;
-            this.soundVolumeText.Text = "Game volume";
-            // 
-            // musicVolumeText
-            // 
-            this.musicVolumeText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.musicVolumeText.AutoSize = true;
-            this.musicVolumeText.Font = new System.Drawing.Font("Cooper Black", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.musicVolumeText.Location = new System.Drawing.Point(283, 257);
-            this.musicVolumeText.Name = "musicVolumeText";
-            this.musicVolumeText.Size = new System.Drawing.Size(215, 34);
-            this.musicVolumeText.TabIndex = 0;
-            this.musicVolumeText.Text = "Music volume";
-            // 
-            // soundVolume
-            // 
-            this.soundVolume.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.soundVolume.Location = new System.Drawing.Point(266, 304);
-            this.soundVolume.Maximum = 100;
-            this.soundVolume.Name = "soundVolume";
-            this.soundVolume.Size = new System.Drawing.Size(250, 45);
-            this.soundVolume.TabIndex = 4;
-            this.soundVolume.TickStyle = System.Windows.Forms.TickStyle.None;
             // 
             // exitButton
             // 
             this.exitButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.exitButton.Font = new System.Drawing.Font("Cooper Black", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(291, 547);
+            this.exitButton.Location = new System.Drawing.Point(291, 512);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(200, 60);
-            this.exitButton.TabIndex = 6;
+            this.exitButton.TabIndex = 13;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
-            // 
-            // musicVolume
-            // 
-            this.musicVolume.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.musicVolume.Location = new System.Drawing.Point(266, 467);
-            this.musicVolume.Maximum = 100;
-            this.musicVolume.Name = "musicVolume";
-            this.musicVolume.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.musicVolume.Size = new System.Drawing.Size(250, 45);
-            this.musicVolume.TabIndex = 3;
-            this.musicVolume.TickStyle = System.Windows.Forms.TickStyle.None;
             // 
             // startButton
             // 
@@ -252,6 +200,17 @@ namespace Invasion.Views
             this.startButton.TabIndex = 5;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
+            // 
+            // tutorialButton
+            // 
+            this.tutorialButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tutorialButton.Font = new System.Drawing.Font("Cooper Black", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tutorialButton.Location = new System.Drawing.Point(291, 228);
+            this.tutorialButton.Name = "tutorialButton";
+            this.tutorialButton.Size = new System.Drawing.Size(200, 60);
+            this.tutorialButton.TabIndex = 12;
+            this.tutorialButton.Text = "Tutorial";
+            this.tutorialButton.UseVisualStyleBackColor = true;
             // 
             // logo
             // 
@@ -281,9 +240,6 @@ namespace Invasion.Views
             this.mainTable.ResumeLayout(false);
             this.mainTable.PerformLayout();
             this.additionalTable.ResumeLayout(false);
-            this.additionalTable.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.soundVolume)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.musicVolume)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -294,11 +250,6 @@ namespace Invasion.Views
         private Label logo;
         private TableLayoutPanel mainTable;
         private TableLayoutPanel additionalTable;
-        private Label soundVolumeText;
-        private Label musicVolumeText;
-        private TrackBar soundVolume;
-        private Button exitButton;
-        private TrackBar musicVolume;
         private Button startButton;
         private TableLayoutPanel pictureTable2;
         private PictureBox pictureBox2;
@@ -306,5 +257,7 @@ namespace Invasion.Views
         private TableLayoutPanel pictureTable1;
         private PictureBox pictureBox3;
         private PictureBox pictureBox1;
+        private Button exitButton;
+        private Button tutorialButton;
     }
 }

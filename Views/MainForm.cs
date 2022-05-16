@@ -51,6 +51,9 @@ namespace Invasion
                 case GameStage.LevelSelecting:
                     ShowLevelSelectingScreen();
                     break;
+                case GameStage.Tutorial:
+                    ShowTutorialScreen();
+                    break;
                 case GameStage.Battle:
                     ShowBattleScreen();
                     break;
@@ -79,6 +82,13 @@ namespace Invasion
             HideScreens();
             levelSelectingControl.Configure(game);
             levelSelectingControl.Show();
+        }
+
+        private void ShowTutorialScreen()
+        {
+            HideScreens();
+            tutorialControl.Configure(game);
+            tutorialControl.Show();
         }
 
         private void ShowBattleScreen()
@@ -111,6 +121,7 @@ namespace Invasion
             KeyPreview = false;
             menuControl.Hide();
             levelSelectingControl.Hide();
+            tutorialControl.Hide();
             battleControl.Hide();
             finishedControl.Hide();
             defeatControl.Hide();

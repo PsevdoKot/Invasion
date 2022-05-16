@@ -31,12 +31,10 @@ namespace Invasion.Views
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelSelectingControl));
             this.table = new System.Windows.Forms.TableLayoutPanel();
-            this.mainTable = new System.Windows.Forms.TableLayoutPanel();
-            this.logo = new System.Windows.Forms.Label();
-            this.pictureTable2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureTable1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mainTable = new System.Windows.Forms.TableLayoutPanel();
             this.additionalTable = new System.Windows.Forms.TableLayoutPanel();
             this.levelsTable = new System.Windows.Forms.TableLayoutPanel();
             this.level3Button = new System.Windows.Forms.Button();
@@ -46,19 +44,20 @@ namespace Invasion.Views
             this.level5Button = new System.Windows.Forms.Button();
             this.level6Button = new System.Windows.Forms.Button();
             this.menuButton = new System.Windows.Forms.Button();
-            this.tutorialButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.logo = new System.Windows.Forms.Label();
+            this.pictureTable2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.table.SuspendLayout();
+            this.pictureTable1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainTable.SuspendLayout();
+            this.additionalTable.SuspendLayout();
+            this.levelsTable.SuspendLayout();
             this.pictureTable2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.pictureTable1.SuspendLayout();
-            this.additionalTable.SuspendLayout();
-            this.levelsTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // table
@@ -79,6 +78,41 @@ namespace Invasion.Views
             this.table.Size = new System.Drawing.Size(1600, 900);
             this.table.TabIndex = 1;
             // 
+            // pictureTable1
+            // 
+            this.pictureTable1.ColumnCount = 1;
+            this.pictureTable1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pictureTable1.Controls.Add(this.pictureBox3, 0, 1);
+            this.pictureTable1.Controls.Add(this.pictureBox1, 0, 0);
+            this.pictureTable1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureTable1.Location = new System.Drawing.Point(3, 3);
+            this.pictureTable1.Name = "pictureTable1";
+            this.pictureTable1.RowCount = 2;
+            this.pictureTable1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pictureTable1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pictureTable1.Size = new System.Drawing.Size(394, 894);
+            this.pictureTable1.TabIndex = 14;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(3, 450);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(388, 441);
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(388, 441);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // mainTable
             // 
             this.mainTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
@@ -95,83 +129,19 @@ namespace Invasion.Views
             this.mainTable.Size = new System.Drawing.Size(794, 894);
             this.mainTable.TabIndex = 10;
             // 
-            // logo
-            // 
-            this.logo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.logo.AutoSize = true;
-            this.logo.Font = new System.Drawing.Font("Cooper Black", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logo.Location = new System.Drawing.Point(251, 50);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(291, 55);
-            this.logo.TabIndex = 8;
-            this.logo.Text = "INVASION";
-            // 
-            // pictureTable2
-            // 
-            this.pictureTable2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.pictureTable2.ColumnCount = 1;
-            this.pictureTable2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pictureTable2.Controls.Add(this.pictureBox4, 0, 1);
-            this.pictureTable2.Controls.Add(this.pictureBox2, 0, 0);
-            this.pictureTable2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureTable2.Location = new System.Drawing.Point(1203, 3);
-            this.pictureTable2.Name = "pictureTable2";
-            this.pictureTable2.RowCount = 2;
-            this.pictureTable2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pictureTable2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pictureTable2.Size = new System.Drawing.Size(394, 894);
-            this.pictureTable2.TabIndex = 13;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(3, 450);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(388, 441);
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(388, 441);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureTable1
-            // 
-            this.pictureTable1.ColumnCount = 1;
-            this.pictureTable1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pictureTable1.Controls.Add(this.pictureBox3, 0, 1);
-            this.pictureTable1.Controls.Add(this.pictureBox1, 0, 0);
-            this.pictureTable1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureTable1.Location = new System.Drawing.Point(3, 3);
-            this.pictureTable1.Name = "pictureTable1";
-            this.pictureTable1.RowCount = 2;
-            this.pictureTable1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pictureTable1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.pictureTable1.Size = new System.Drawing.Size(394, 894);
-            this.pictureTable1.TabIndex = 14;
-            // 
             // additionalTable
             // 
             this.additionalTable.ColumnCount = 1;
             this.additionalTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.additionalTable.Controls.Add(this.levelsTable, 0, 1);
             this.additionalTable.Controls.Add(this.menuButton, 0, 2);
-            this.additionalTable.Controls.Add(this.tutorialButton, 0, 0);
             this.additionalTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.additionalTable.Location = new System.Drawing.Point(6, 159);
             this.additionalTable.Name = "additionalTable";
             this.additionalTable.RowCount = 3;
-            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.01344F));
-            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.98656F));
-            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 274F));
-            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.additionalTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.additionalTable.Size = new System.Drawing.Size(782, 729);
             this.additionalTable.TabIndex = 10;
             // 
@@ -273,36 +243,52 @@ namespace Invasion.Views
             this.menuButton.Text = "Menu";
             this.menuButton.UseVisualStyleBackColor = true;
             // 
-            // tutorialButton
+            // logo
             // 
-            this.tutorialButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tutorialButton.Font = new System.Drawing.Font("Cooper Black", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tutorialButton.Location = new System.Drawing.Point(291, 87);
-            this.tutorialButton.Name = "tutorialButton";
-            this.tutorialButton.Size = new System.Drawing.Size(200, 60);
-            this.tutorialButton.TabIndex = 11;
-            this.tutorialButton.Text = "Tutorial";
-            this.tutorialButton.UseVisualStyleBackColor = true;
+            this.logo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.logo.AutoSize = true;
+            this.logo.Font = new System.Drawing.Font("Cooper Black", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logo.Location = new System.Drawing.Point(251, 50);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(291, 55);
+            this.logo.TabIndex = 8;
+            this.logo.Text = "INVASION";
             // 
-            // pictureBox1
+            // pictureTable2
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(388, 441);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureTable2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.pictureTable2.ColumnCount = 1;
+            this.pictureTable2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pictureTable2.Controls.Add(this.pictureBox4, 0, 1);
+            this.pictureTable2.Controls.Add(this.pictureBox2, 0, 0);
+            this.pictureTable2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureTable2.Location = new System.Drawing.Point(1203, 3);
+            this.pictureTable2.Name = "pictureTable2";
+            this.pictureTable2.RowCount = 2;
+            this.pictureTable2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pictureTable2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pictureTable2.Size = new System.Drawing.Size(394, 894);
+            this.pictureTable2.TabIndex = 13;
             // 
-            // pictureBox3
+            // pictureBox4
             // 
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(3, 450);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(388, 441);
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(3, 450);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(388, 441);
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(388, 441);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // LevelSelectingControl
             // 
@@ -312,16 +298,16 @@ namespace Invasion.Views
             this.Name = "LevelSelectingControl";
             this.Size = new System.Drawing.Size(1600, 900);
             this.table.ResumeLayout(false);
+            this.pictureTable1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.mainTable.ResumeLayout(false);
             this.mainTable.PerformLayout();
+            this.additionalTable.ResumeLayout(false);
+            this.levelsTable.ResumeLayout(false);
             this.pictureTable2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.pictureTable1.ResumeLayout(false);
-            this.additionalTable.ResumeLayout(false);
-            this.levelsTable.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -344,7 +330,6 @@ namespace Invasion.Views
         private System.Windows.Forms.Button level5Button;
         private System.Windows.Forms.Button level6Button;
         private System.Windows.Forms.Button menuButton;
-        private System.Windows.Forms.Button tutorialButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
     }

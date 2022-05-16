@@ -32,6 +32,7 @@ namespace Invasion
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuControl = new Invasion.Views.MenuControl();
             this.levelSelectingControl = new Invasion.Views.LevelSelectingControl();
+            this.tutorialControl = new Views.TutorialControl();
             this.battleControl = new Invasion.Views.BattleControl();
             this.finishedControl = new Invasion.Views.FinishedControl();
             this.defeatControl = new Invasion.Views.DefeatControl();
@@ -43,7 +44,7 @@ namespace Invasion
             this.menuControl.Location = new System.Drawing.Point(0, 0);
             this.menuControl.Name = "menuControl";
             this.menuControl.Size = new System.Drawing.Size(1600, 881);
-            this.menuControl.TabIndex = 2;
+            this.menuControl.TabIndex = 0;
             // 
             // levelSelectingControl
             // 
@@ -53,6 +54,14 @@ namespace Invasion
             this.levelSelectingControl.Size = new System.Drawing.Size(1600, 881);
             this.levelSelectingControl.TabIndex = 1;
             // 
+            // tutorialControl
+            // 
+            this.tutorialControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tutorialControl.Location = new System.Drawing.Point(0, 0);
+            this.tutorialControl.Name = "tutorialControl";
+            this.tutorialControl.Size = new System.Drawing.Size(1600, 881);
+            this.tutorialControl.TabIndex = 2;
+            // 
             // battleControl
             // 
             this.battleControl.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -60,7 +69,7 @@ namespace Invasion
             this.battleControl.Location = new System.Drawing.Point(0, 0);
             this.battleControl.Name = "battleControl";
             this.battleControl.Size = new System.Drawing.Size(1600, 881);
-            this.battleControl.TabIndex = 0;
+            this.battleControl.TabIndex = 3;
             // 
             // finishedControl
             // 
@@ -68,7 +77,7 @@ namespace Invasion
             this.finishedControl.Location = new System.Drawing.Point(0, 0);
             this.finishedControl.Name = "finishedControl";
             this.finishedControl.Size = new System.Drawing.Size(1600, 881);
-            this.finishedControl.TabIndex = 3;
+            this.finishedControl.TabIndex = 4;
             // 
             // defeatControl
             // 
@@ -76,7 +85,7 @@ namespace Invasion
             this.defeatControl.Location = new System.Drawing.Point(0, 0);
             this.defeatControl.Name = "defeatControl";
             this.defeatControl.Size = new System.Drawing.Size(1600, 881);
-            this.defeatControl.TabIndex = 4;
+            this.defeatControl.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -85,6 +94,7 @@ namespace Invasion
             this.ClientSize = new System.Drawing.Size(1600, 881);
             this.Controls.Add(this.menuControl);
             this.Controls.Add(this.levelSelectingControl);
+            this.Controls.Add(this.tutorialControl);
             this.Controls.Add(this.battleControl);
             this.Controls.Add(this.finishedControl);
             this.Controls.Add(this.defeatControl);
@@ -102,6 +112,7 @@ namespace Invasion
 
         private Invasion.Views.MenuControl menuControl;
         private Invasion.Views.LevelSelectingControl levelSelectingControl;
+        private Invasion.Views.TutorialControl tutorialControl;
         private Invasion.Views.BattleControl battleControl;
         private Invasion.Views.FinishedControl finishedControl;
         private Invasion.Views.DefeatControl defeatControl;

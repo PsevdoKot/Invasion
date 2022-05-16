@@ -83,9 +83,39 @@ namespace Invasion.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cannon1 {
+            get {
+                object obj = ResourceManager.GetObject("cannon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cannon2 {
+            get {
+                object obj = ResourceManager.GetObject("cannon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cannonBall {
             get {
                 object obj = ResourceManager.GetObject("cannonBall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cannonUnit {
+            get {
+                object obj = ResourceManager.GetObject("cannonUnit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,26 +246,6 @@ namespace Invasion.Properties {
         internal static System.Drawing.Bitmap supplyCenter {
             get {
                 object obj = ResourceManager.GetObject("supplyCenter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap turret1 {
-            get {
-                object obj = ResourceManager.GetObject("turret1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap turret2 {
-            get {
-                object obj = ResourceManager.GetObject("turret2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

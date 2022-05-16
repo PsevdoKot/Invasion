@@ -19,7 +19,7 @@ namespace Invasion.Domain.Projectiles
 
         public Vector MoveVector { get; set; }
         public double Direction { get; set; }
-        public double MoveSpeed { get; set; } = 100;
+        public double MoveSpeed { get; set; } = 70;
         public int ShotPower { get; set; }
 
         public Laser(Vector position, double direction, int shotPower)

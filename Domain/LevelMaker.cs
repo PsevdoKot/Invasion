@@ -10,9 +10,14 @@ using System.Threading.Tasks;
 
 namespace Invasion.Domain
 {
-    public class LevelMaker
-    {
-		//public static Level[] Levels = new Level[7];
+	public class LevelMaker
+	{
+		//private static Level[] Levels = new Level[7];
+
+		//public static Level GetLevel(int levelNumber)
+		//{
+		//	return Levels[levelNumber] ?? LoadLevelFromFolder(Folders.Levels, levelNumber);
+		//}
 
 		public static Level LoadLevelFromFolder(DirectoryInfo folder, int levelNumber)
 		{
@@ -33,8 +38,8 @@ namespace Invasion.Domain
 			var wallsPositions = MakeWallsFromData(inputData[4]);
 			var droneAppearanceTime = int.Parse(inputData[5].Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)[1]);
 
-			//var level = new Level(cannon, controlCenterPosition, supplyCentersPositions, wallsPositions, droneAppearanceTime);
-			//Levels[levelNumber] = level;
+			//Levels[levelNumber] = new Level(cannon, controlCenterPosition, supplyCentersPositions, wallsPositions, droneAppearanceTime);
+			//return new Level(Levels[levelNumber]);
 			return new Level(cannon, controlCenterPosition, supplyCentersPositions, wallsPositions, droneAppearanceTime);
 		}
 
