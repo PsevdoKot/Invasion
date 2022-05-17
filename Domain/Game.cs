@@ -303,7 +303,7 @@ namespace Invasion.Domain
         private void SpawnDrone()
         {
             var dronePosition = new Vector(random.Next(50, BattleGround.Width - 50), 0);
-            CurrentLevel.Drones.Add(new Drone(dronePosition, CurrentLevel.Cannon.Position));
+            CurrentLevel.Drones.Add(new Drone(dronePosition, BattleGround, CurrentLevel.Walls, CurrentLevel.Cannon.Collision));
         }
     }
 }

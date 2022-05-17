@@ -92,17 +92,17 @@ namespace Invasion.Views
         {
             switch (e)
             {
-                case Keys.A:
+                case Keys.X:
                     level.Cannon.RotateDirection(Turn.Right);
                     break;
-                case Keys.D:
+                case Keys.V:
                     level.Cannon.RotateDirection(Turn.Left);
                     break;
-                case Keys.W:
+                case Keys.D:
                     level.Cannon.ChangeShotPower(Turn.Right);
                     infoTable.Invalidate();
                     break;
-                case Keys.S:
+                case Keys.C:
                     level.Cannon.ChangeShotPower(Turn.Left);
                     infoTable.Invalidate();
                     break;

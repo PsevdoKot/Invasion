@@ -23,6 +23,5 @@ C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\bin\Debug\nunit.fra
 C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\bin\Debug\nunit.framework.xml
 C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.csproj.CopyComplete
 C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.Views.TutorialControl.resources
-C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Interop.MediaPlayer.dll
 C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Interop.WMPLib.dll
 C:\Users\Ноут\Desktop\VS\Game Invasion\Invasion\Invasion\obj\Debug\Invasion.csproj.ResolveComReference.cache
