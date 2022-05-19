@@ -135,7 +135,7 @@ namespace Invasion.Views
         }
 
         /////
-        /////  Views
+        /////  
         /////
 
         private void uiTimer_Tick(object sender, EventArgs e)
